@@ -4,63 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esquina Heredia | Tienda Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --naranja: #e67e22; --verde: #27ae60; --oscuro: #2c3e50; --gris: #f4f7f6; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--gris); margin: 0; padding-bottom: 120px; }
+        :root { 
+            --naranja: #e67e22; 
+            --verde: #27ae60; 
+            --oscuro: #2c3e50; 
+            --gris: #f4f7f6; 
+            --blanco: #ffffff;
+        }
         
-        /* Header con Logo */
-        header { background: white; text-align: center; padding: 0; border-bottom: 4px solid var(--naranja); }
-        .banner-principal { width: 100%; max-width: 600px; height: auto; display: block; margin: 0 auto; }
+        body { font-family: 'Roboto', sans-serif; background: var(--gris); margin: 0; padding-bottom: 120px; }
         
-        .info-tienda { background: var(--oscuro); color: white; padding: 15px; text-align: center; font-size: 0.9rem; }
-        .info-tienda i { color: var(--naranja); margin-right: 5px; }
+        /* Header Elegante */
+        header { 
+            background: var(--blanco); 
+            text-align: center; 
+            padding: 20px; 
+            border-bottom: 4px solid var(--naranja);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo-tienda { width: 100%; max-width: 450px; border-radius: 10px; }
+        
+        .nombres-dueños { font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: var(--naranja); margin: 10px 0; }
+        .direccion { font-size: 0.9rem; color: var(--oscuro); margin-bottom: 15px; font-weight: bold; }
+        .direccion i { color: var(--naranja); }
+
+        .btn-whatsapp-header {
+            display: inline-flex;
+            align-items: center;
+            background-color: #25d366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            gap: 8px;
+        }
 
         /* Categorías */
-        .categoria-header { background: var(--naranja); color: white; padding: 12px 20px; font-weight: bold; margin-top: 25px; display: flex; align-items: center; gap: 10px; font-size: 1.1rem; }
+        .categoria-header { 
+            background: var(--oscuro); 
+            color: white; 
+            padding: 12px 20px; 
+            font-weight: bold; 
+            margin-top: 25px; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            border-left: 6px solid var(--naranja);
+        }
         .contenedor { display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: 15px; padding: 15px; }
         
         /* Tarjetas de Producto */
-        .producto-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: flex; flex-direction: column; border: 1px solid #eee; }
-        .producto-card img { width: 100%; height: 150px; object-fit: cover; }
+        .producto-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column; border: 1px solid #eee; transition: 0.3s; }
+        .producto-card img { width: 100%; height: 160px; object-fit: cover; background: #f9f9f9; }
         .detalles { padding: 12px; text-align: center; flex-grow: 1; }
-        .detalles h3 { font-size: 0.95rem; margin: 5px 0; height: 40px; overflow: hidden; color: var(--oscuro); }
+        .detalles h3 { font-size: 0.9rem; margin: 5px 0; height: 35px; overflow: hidden; color: var(--oscuro); }
         .precio { color: var(--naranja); font-weight: bold; font-size: 1.2rem; display: block; margin-bottom: 10px; }
         
-        /* Controles Cantidad */
-        .controles { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 10px; }
-        .btn-qty { background: #f0f0f0; border: none; width: 35px; height: 35px; border-radius: 10px; cursor: pointer; font-size: 1.2rem; transition: 0.2s; }
-        .btn-qty:active { background: #ddd; }
-        .qty-val { font-weight: bold; font-size: 1.1rem; min-width: 25px; }
+        /* Controles */
+        .controles { display: flex; justify-content: center; align-items: center; gap: 12px; margin-bottom: 5px; }
+        .btn-qty { background: #eee; border: none; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        .qty-val { font-weight: bold; min-width: 20px; }
 
         /* Carrito Barra Inferior */
-        .carrito-barra { position: fixed; bottom: 0; width: 100%; background: var(--oscuro); color: white; padding: 15px 0; display: flex; justify-content: space-around; align-items: center; z-index: 1000; box-shadow: 0 -4px 15px rgba(0,0,0,0.3); }
-        .total-txt { font-size: 1.2rem; font-weight: bold; }
-        .btn-pagar { background: var(--verde); color: white; border: none; padding: 12px 25px; border-radius: 30px; font-weight: bold; cursor: pointer; font-size: 1rem; box-shadow: 0 4px 0 #1e8449; }
-        .btn-pagar:active { transform: translateY(2px); box-shadow: none; }
+        .carrito-barra { position: fixed; bottom: 0; width: 100%; background: var(--oscuro); color: white; padding: 15px 0; display: flex; justify-content: space-around; align-items: center; z-index: 1000; }
+        .btn-pagar { background: var(--verde); color: white; border: none; padding: 12px 25px; border-radius: 30px; font-weight: bold; cursor: pointer; }
 
-        /* Modal Desglose */
-        #modal-desglose { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; width: 90%; max-width: 450px; padding: 25px; border-radius: 20px; z-index: 2000; box-shadow: 0 0 30px rgba(0,0,0,0.5); max-height: 80vh; overflow-y: auto; }
+        /* Modal */
+        #modal-desglose { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; width: 90%; max-width: 450px; padding: 25px; border-radius: 20px; z-index: 2000; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
         .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1500; }
-        .linea-contable { display: flex; justify-content: space-between; border-bottom: 1px dashed #ddd; padding: 8px 0; font-family: 'Courier New', monospace; font-size: 0.95rem; }
+        .linea-contable { display: flex; justify-content: space-between; border-bottom: 1px dashed #ddd; padding: 8px 0; font-family: monospace; }
         
-        /* Panel de Créditos Especial */
-        .panel-creditos { background: #eee; margin-top: 50px; padding: 30px 15px; text-align: center; border-top: 2px solid #ddd; }
-        .firma-container { display: flex; justify-content: center; gap: 40px; margin-top: 15px; }
-        .firma { font-family: 'Brush Script MT', cursive; font-size: 1.5rem; color: var(--oscuro); }
-        .mariposa-footer { color: var(--naranja); font-size: 1.5rem; display: block; margin-bottom: 10px; }
+        /* Footer Promoción Miguel */
+        footer { background: #1a252f; color: white; padding: 40px 20px; text-align: center; }
+        .dev-promo { border: 1px dashed rgba(255,255,255,0.2); padding: 20px; border-radius: 15px; display: inline-block; }
+        .firma { font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: var(--naranja); }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="logo_heredia.jpg" alt="Esquina Heredia Logo" class="banner-principal">
+    <img src="logo_heredia.jpg" alt="Esquina Heredia" class="logo-tienda">
+    <div class="nombres-dueños">Yaniuska & Willsom</div>
+    <div class="direccion">
+        <i class="fas fa-map-marker-alt"></i> Julián Santana #98A, Entre Lora y Nicolás Heredia
+    </div>
+    <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+        <a href="https://wa.me/5351336140" class="btn-whatsapp-header"><i class="fab fa-whatsapp"></i> Yaniuska</a>
+        <a href="https://wa.me/5359459678" class="btn-whatsapp-header"><i class="fab fa-whatsapp"></i> Willsom</a>
+    </div>
 </header>
-
-<div class="info-tienda">
-    <i class="fas fa-map-marker-alt"></i> Julián Santana #98A, Entre Lora y Nicolás Heredia<br>
-    <i class="fas fa-clock"></i> Abierto Mañana: 9:00 AM - 4:00 PM
-</div>
 
 <div class="categoria-header"><i class="fas fa-tv"></i> ELECTRODOMÉSTICOS</div>
 <div class="contenedor" id="cat-electro"></div>
@@ -77,69 +114,67 @@
 <div class="categoria-header"><i class="fas fa-soap"></i> ASEO PERSONAL Y HOGAR</div>
 <div class="contenedor" id="cat-aseo"></div>
 
-<div class="panel-creditos">
-    <span class="mariposa-footer">🦋</span>
-    <strong>Desarrollado por:</strong>
-    <div class="firma-container">
-        <div>
-            <div class="firma">Miguel Acosta</div>
-            <small>Arquitecto de Datos</small>
-        </div>
-        <div>
-            <div class="firma">Gemini AI</div>
-            <small>Ingeniería de Código</small>
-        </div>
+<footer>
+    <div class="dev-promo">
+        <p style="margin:0">Desarrollado por:</p>
+        <div class="firma">Miguel Acosta Neira & Gemini AI</div>
+        <p style="font-size: 0.8rem; margin: 10px 0;">
+            ¿Quieres una web como esta para tu negocio?<br>
+            📧 miguel8904@gmail.com | 📱 +53 51336140
+        </p>
     </div>
-    <p style="font-size: 0.7rem; margin-top: 20px; opacity: 0.6;">© 2026 Esquina Heredia - Gestión Tecnológica Avanzada</p>
-</div>
+</footer>
 
 <div class="carrito-barra">
-    <div class="total-txt">Total: $<span id="total-general">0</span></div>
-    <button class="btn-pagar" onclick="mostrarDesglose()"><i class="fas fa-shopping-basket"></i> REVISAR PEDIDO</button>
+    <div style="font-weight:bold">Total: $<span id="total-general">0</span></div>
+    <button class="btn-pagar" onclick="mostrarDesglose()"><i class="fas fa-shopping-cart"></i> REVISAR PEDIDO</button>
 </div>
 
 <div class="overlay" onclick="cerrarModal()"></div>
 <div id="modal-desglose">
-    <h3 style="text-align:center; border-bottom: 2px solid var(--naranja); padding-bottom:10px;">🧾 DESGLOSE CONTABLE</h3>
+    <h3 style="text-align:center; color: var(--naranja);">🧾 RESUMEN DE COMPRA</h3>
     <div id="lista-contable"></div>
-    <div style="display:flex; justify-content: space-between; font-weight:bold; font-size:1.4rem; margin-top:20px; color: var(--naranja);">
+    <div style="display:flex; justify-content: space-between; font-weight:bold; font-size:1.3rem; margin-top:20px;">
         <span>TOTAL:</span><span id="total-modal">$0</span>
     </div>
-    <button onclick="enviarWhatsApp()" style="width:100%; background:#25d366; color:white; border:none; padding:15px; border-radius:12px; margin-top:20px; font-weight:bold; font-size:1.1rem; cursor:pointer;">
-        <i class="fab fa-whatsapp"></i> ENVIAR A LA TIENDA
+    <button onclick="enviarWhatsApp()" style="width:100%; background:#25d366; color:white; border:none; padding:15px; border-radius:10px; margin-top:20px; font-weight:bold; cursor:pointer;">
+        ENVIAR PEDIDO A YANIUSKA
     </button>
-    <button onclick="cerrarModal()" style="width:100%; background:none; border:none; color:#888; margin-top:10px; cursor:pointer;">Seguir Comprando</button>
 </div>
 
 <script>
     const productos = [
-        // ELECTRO
-        { id: 1, cat: 'electro', nombre: 'Smart TV VISION 43"', precio: 141000, img: 'smart_tv_vision_43pulgadas.jpg' },
-        // ASEO
-        { id: 2, cat: 'aseo', nombre: 'Champú Head & Shoulders 400ml', precio: 1350, img: 'champu_head_&_shoulders.jpg' },
-        { id: 3, cat: 'aseo', nombre: 'Pasta Dental Coolwhite 120g', precio: 420, img: 'pasta_dental_coolwhite.jpg' },
-        { id: 4, cat: 'aseo', nombre: 'Pasta Aloe Vera Crogate 100g', precio: 280, img: 'pastadental_aloevera_crogatetriple.jpg' },
-        { id: 5, cat: 'aseo', nombre: 'Pasta FreeDent 90g', precio: 270, img: 'pastadental_freedent.jpg' },
-        { id: 6, cat: 'aseo', nombre: 'Desodorante MELAO 50ml', precio: 300, img: 'desodorante_melao_50ml.jpg' },
-        // ALIMENTOS
-        { id: 7, cat: 'alimentos', nombre: 'Leche Condensada Marwa 390g', precio: 465, img: 'leche_condensada_marwa.jpg' },
-        { id: 8, cat: 'alimentos', nombre: 'Arroz Rio Grande 1kg', precio: 620, img: 'arroz_riogrande.jpg' },
-        { id: 9, cat: 'alimentos', nombre: 'Pasta de Tomate Marwa 210g', precio: 260, img: 'pastadetomate_marwa.jpg' },
-        { id: 10, cat: 'alimentos', nombre: 'Salsa Tomate Italiana 200g', precio: 260, img: 'salsadetomate_italiana_marwa.jpg' },
-        { id: 11, cat: 'alimentos', nombre: 'Sopitas Midooles 80g', precio: 185, img: 'sopitas_midooles.jpg' },
-        { id: 12, cat: 'alimentos', nombre: 'Sopitas Richester Lamen', precio: 175, img: 'sopitasrichester_lamen_74.3g.jpg' },
-        { id: 13, cat: 'alimentos', nombre: 'Sazón Pollo Marwa 10g', precio: 50, img: 'sazondepollo_marwa_100g.jpg' },
-        // BEBIDAS
-        { id: 14, cat: 'bebidas', nombre: 'Refresco Mayar 14g', precio: 30, img: 'refresco_mayar.jpg' },
-        { id: 15, cat: 'bebidas', nombre: 'Refresco Frutti 14g', precio: 25, img: 'refresco_frutti.jpg' },
-        { id: 16, cat: 'bebidas', nombre: 'Refresco Marwa 14g', precio: 27, img: 'refresco_marwa_14g.jpg' },
-        // CONFITURAS
-        { id: 17, cat: 'confituras', nombre: 'Galletas Hi Hello 55g', precio: 120, img: 'galletas_hi_hello.jpg' },
+        // ELECTRODOMÉSTICOS
+        { id: 1, cat: 'electro', nombre: 'Smart TV VISION 43"', precio: 141000, img: 'smart_tv_vision_43.jpg' },
+        
+        // CONFITURAS Y DULCES
+        { id: 17, cat: 'confituras', nombre: 'Galletas Hi Hello 55g', precio: 120, img: 'galletas_hi_hello_55g.jpg' },
         { id: 18, cat: 'confituras', nombre: 'Galletas Creamy Delight', precio: 50, img: 'galletas_creamy_delight.jpg' },
-        { id: 19, cat: 'confituras', nombre: 'Galletas Hola 70g', precio: 150, img: 'galletas_hola.jpg' },
-        { id: 20, cat: 'confituras', nombre: 'Galletas Fun it 36g', precio: 90, img: 'galletas_fun_it.jpg' },
-        { id: 21, cat: 'confituras', nombre: 'Galletas Cream Cracker 350g', precio: 650, img: 'galletasrichester_creamcraker.jpg' },
-        { id: 22, cat: 'confituras', nombre: 'Galletas Richester María', precio: 650, img: 'galletas_richester_maria.jpg' }
+        { id: 19, cat: 'confituras', nombre: 'Galletas Hola 70g', precio: 150, img: 'galletas_hola_70g.jpg' },
+        { id: 20, cat: 'confituras', nombre: 'Galletas Fun it 36g', precio: 90, img: 'galletas_fun_it_36g.jpg' },
+        { id: 21, cat: 'confituras', nombre: 'Galletas Cream Cracker 350g', precio: 650, img: 'galletas_cream_cracker_350g.jpg' },
+        { id: 22, cat: 'confituras', nombre: 'Galletas Richester María', precio: 650, img: 'galletas_richester_maria.jpg' },
+
+        // ALIMENTOS Y DESPENSA
+        { id: 7, cat: 'alimentos', nombre: 'Leche Condensada Marwa', precio: 465, img: 'leche_condensada_marwa_390g.jpg' },
+        { id: 8, cat: 'alimentos', nombre: 'Arroz Rio Grande 1kg', precio: 620, img: 'arroz_rio_grande_1kg.jpg' },
+        { id: 9, cat: 'alimentos', nombre: 'Pasta de Tomate Marwa', precio: 260, img: 'pasta_de_tomate_marwa_210g.jpg' },
+        { id: 10, cat: 'alimentos', nombre: 'Salsa Tomate Italiana', precio: 260, img: 'salsa_tomate_italiana_200g.jpg' },
+        { id: 11, cat: 'alimentos', nombre: 'Sopitas Midooles 80g', precio: 185, img: 'sopitas_midooles_80g.jpg' },
+        { id: 12, cat: 'alimentos', nombre: 'Sopitas Richester Lamen', precio: 175, img: 'sopitas_richester_lamen.jpg' },
+        { id: 13, cat: 'alimentos', nombre: 'Sazón Pollo Marwa 10g', precio: 50, img: 'sazon_pollo_marwa_10g.jpg' },
+
+        // BEBIDAS Y REFRESCOS
+        { id: 14, cat: 'bebidas', nombre: 'Refresco Mayar 14g', precio: 30, img: 'refresco_mayar_14g.jpg' },
+        { id: 15, cat: 'bebidas', nombre: 'Refresco Frutti 14g', precio: 25, img: 'refresco_frutti_14g.jpg' },
+        { id: 16, cat: 'bebidas', nombre: 'Refresco Marwa 14g', precio: 27, img: 'refresco_marwa_14g.jpg' },
+
+        // ASEO PERSONAL Y HOGAR
+        { id: 2, cat: 'aseo', nombre: 'Champú Head & Shoulders', precio: 1350, img: 'champu_head_&_shoulders_400ml.jpg' },
+        { id: 3, cat: 'aseo', nombre: 'Pasta Dental Coolwhite', precio: 420, img: 'pasta_dental_coolwhite_120g.jpg' },
+        { id: 4, cat: 'aseo', nombre: 'Pasta Aloe Vera Crogate', precio: 280, img: 'pasta_aloe_vera_crogate_100g.jpg' },
+        { id: 5, cat: 'aseo', nombre: 'Pasta FreeDent 90g', precio: 270, img: 'pasta_freedent_90g.jpg' },
+        { id: 6, cat: 'aseo', nombre: 'Desodorante MELAO 50ml', precio: 300, img: 'desodorante_melao_50ml.jpg' }
     ];
 
     let carrito = {};
@@ -148,7 +183,7 @@
         productos.forEach(p => {
             const html = `
                 <div class="producto-card">
-                    <img src="${p.img}" alt="${p.nombre}">
+                    <img src="${p.img}" onerror="this.src='https://via.placeholder.com/150?text=Imagen+No+Encontrada'">
                     <div class="detalles">
                         <h3>${p.nombre}</h3>
                         <span class="precio">$${p.precio}</span>
@@ -183,15 +218,12 @@
         let total = 0;
         productos.forEach(p => {
             if (carrito[p.id] > 0) {
-                let subtotal = p.precio * carrito[p.id];
-                total += subtotal;
-                listado += `<div class="linea-contable">
-                    <span>${carrito[p.id]} x ${p.nombre}</span>
-                    <span>$${subtotal}</span>
-                </div>`;
+                let sub = p.precio * carrito[p.id];
+                total += sub;
+                listado += `<div class="linea-contable"><span>${carrito[p.id]} x ${p.nombre}</span><span>$${sub}</span></div>`;
             }
         });
-        if (total === 0) return alert("El carrito está vacío. ¡Elige algo rico!");
+        if (total === 0) return alert("Selecciona al menos un producto.");
         document.getElementById('lista-contable').innerHTML = listado;
         document.getElementById('total-modal').innerText = "$" + total;
         document.querySelector('.overlay').style.display = 'block';
@@ -214,7 +246,8 @@
             }
         });
         mensaje += `---------------------------%0A💰 *TOTAL A PAGAR: $${total}*`;
-        window.open(`https://wa.me/5356431944?text=${mensaje}`);
+        // Envía a Yaniuska
+        window.open(`https://wa.me/5351336140?text=${mensaje}`);
     }
 
     renderProductos();
