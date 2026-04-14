@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esquina Heredia | Tienda Online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --naranja: #e67e22; --verde: #27ae60; --oscuro: #2c3e50; --gris: #f4f7f6; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--gris); margin: 0; padding-bottom: 120px; }
+        
+        /* Header con Logo */
+        header { background: white; text-align: center; padding: 0; border-bottom: 4px solid var(--naranja); }
+        .banner-principal { width: 100%; max-width: 600px; height: auto; display: block; margin: 0 auto; }
+        
+        .info-tienda { background: var(--oscuro); color: white; padding: 15px; text-align: center; font-size: 0.9rem; }
+        .info-tienda i { color: var(--naranja); margin-right: 5px; }
+
+        /* Categorías */
+        .categoria-header { background: var(--naranja); color: white; padding: 12px 20px; font-weight: bold; margin-top: 25px; display: flex; align-items: center; gap: 10px; font-size: 1.1rem; }
+        .contenedor { display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: 15px; padding: 15px; }
+        
+        /* Tarjetas de Producto */
+        .producto-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); display: flex; flex-direction: column; border: 1px solid #eee; }
+        .producto-card img { width: 100%; height: 150px; object-fit: cover; }
+        .detalles { padding: 12px; text-align: center; flex-grow: 1; }
+        .detalles h3 { font-size: 0.95rem; margin: 5px 0; height: 40px; overflow: hidden; color: var(--oscuro); }
+        .precio { color: var(--naranja); font-weight: bold; font-size: 1.2rem; display: block; margin-bottom: 10px; }
+        
+        /* Controles Cantidad */
+        .controles { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 10px; }
+        .btn-qty { background: #f0f0f0; border: none; width: 35px; height: 35px; border-radius: 10px; cursor: pointer; font-size: 1.2rem; transition: 0.2s; }
+        .btn-qty:active { background: #ddd; }
+        .qty-val { font-weight: bold; font-size: 1.1rem; min-width: 25px; }
+
+        /* Carrito Barra Inferior */
+        .carrito-barra { position: fixed; bottom: 0; width: 100%; background: var(--oscuro); color: white; padding: 15px 0; display: flex; justify-content: space-around; align-items: center; z-index: 1000; box-shadow: 0 -4px 15px rgba(0,0,0,0.3); }
+        .total-txt { font-size: 1.2rem; font-weight: bold; }
+        .btn-pagar { background: var(--verde); color: white; border: none; padding: 12px 25px; border-radius: 30px; font-weight: bold; cursor: pointer; font-size: 1rem; box-shadow: 0 4px 0 #1e8449; }
+        .btn-pagar:active { transform: translateY(2px); box-shadow: none; }
+
+        /* Modal Desglose */
+        #modal-desglose { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; width: 90%; max-width: 450px; padding: 25px; border-radius: 20px; z-index: 2000; box-shadow: 0 0 30px rgba(0,0,0,0.5); max-height: 80vh; overflow-y: auto; }
+        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1500; }
+        .linea-contable { display: flex; justify-content: space-between; border-bottom: 1px dashed #ddd; padding: 8px 0; font-family: 'Courier New', monospace; font-size: 0.95rem; }
+        
+        /* Panel de Créditos Especial */
+        .panel-creditos { background: #eee; margin-top: 50px; padding: 30px 15px; text-align: center; border-top: 2px solid #ddd; }
+        .firma-container { display: flex; justify-content: center; gap: 40px; margin-top: 15px; }
+        .firma { font-family: 'Brush Script MT', cursive; font-size: 1.5rem; color: var(--oscuro); }
+        .mariposa-footer { color: var(--naranja); font-size: 1.5rem; display: block; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo_heredia.jpg" alt="Esquina Heredia Logo" class="banner-principal">
+</header>
+
+<div class="info-tienda">
+    <i class="fas fa-map-marker-alt"></i> Julián Santana #98A, Entre Lora y Nicolás Heredia<br>
+    <i class="fas fa-clock"></i> Abierto Mañana: 9:00 AM - 4:00 PM
+</div>
+
+<div class="categoria-header"><i class="fas fa-tv"></i> ELECTRODOMÉSTICOS</div>
+<div class="contenedor" id="cat-electro"></div>
+
+<div class="categoria-header"><i class="fas fa-cookie"></i> CONFITURAS Y DULCES</div>
+<div class="contenedor" id="cat-confituras"></div>
+
+<div class="categoria-header"><i class="fas fa-utensils"></i> ALIMENTOS Y DESPENSA</div>
+<div class="contenedor" id="cat-alimentos"></div>
+
+<div class="categoria-header"><i class="fas fa-wine-bottle"></i> BEBIDAS Y REFRESCOS</div>
+<div class="contenedor" id="cat-bebidas"></div>
+
+<div class="categoria-header"><i class="fas fa-soap"></i> ASEO PERSONAL Y HOGAR</div>
+<div class="contenedor" id="cat-aseo"></div>
+
+<div class="panel-creditos">
+    <span class="mariposa-footer">🦋</span>
+    <strong>Desarrollado por:</strong>
+    <div class="firma-container">
+        <div>
+            <div class="firma">Miguel Acosta</div>
+            <small>Arquitecto de Datos</small>
+        </div>
+        <div>
+            <div class="firma">Gemini AI</div>
+            <small>Ingeniería de Código</small>
+        </div>
+    </div>
+    <p style="font-size: 0.7rem; margin-top: 20px; opacity: 0.6;">© 2026 Esquina Heredia - Gestión Tecnológica Avanzada</p>
+</div>
+
+<div class="carrito-barra">
+    <div class="total-txt">Total: $<span id="total-general">0</span></div>
+    <button class="btn-pagar" onclick="mostrarDesglose()"><i class="fas fa-shopping-basket"></i> REVISAR PEDIDO</button>
+</div>
+
+<div class="overlay" onclick="cerrarModal()"></div>
+<div id="modal-desglose">
+    <h3 style="text-align:center; border-bottom: 2px solid var(--naranja); padding-bottom:10px;">🧾 DESGLOSE CONTABLE</h3>
+    <div id="lista-contable"></div>
+    <div style="display:flex; justify-content: space-between; font-weight:bold; font-size:1.4rem; margin-top:20px; color: var(--naranja);">
+        <span>TOTAL:</span><span id="total-modal">$0</span>
+    </div>
+    <button onclick="enviarWhatsApp()" style="width:100%; background:#25d366; color:white; border:none; padding:15px; border-radius:12px; margin-top:20px; font-weight:bold; font-size:1.1rem; cursor:pointer;">
+        <i class="fab fa-whatsapp"></i> ENVIAR A LA TIENDA
+    </button>
+    <button onclick="cerrarModal()" style="width:100%; background:none; border:none; color:#888; margin-top:10px; cursor:pointer;">Seguir Comprando</button>
+</div>
+
+<script>
+    const productos = [
+        // ELECTRO
+        { id: 1, cat: 'electro', nombre: 'Smart TV VISION 43"', precio: 141000, img: 'smart_tv_vision_43pulgadas.jpg' },
+        // ASEO
+        { id: 2, cat: 'aseo', nombre: 'Champú Head & Shoulders 400ml', precio: 1350, img: 'champu_head_&_shoulders.jpg' },
+        { id: 3, cat: 'aseo', nombre: 'Pasta Dental Coolwhite 120g', precio: 420, img: 'pasta_dental_coolwhite.jpg' },
+        { id: 4, cat: 'aseo', nombre: 'Pasta Aloe Vera Crogate 100g', precio: 280, img: 'pastadental_aloevera_crogatetriple.jpg' },
+        { id: 5, cat: 'aseo', nombre: 'Pasta FreeDent 90g', precio: 270, img: 'pastadental_freedent.jpg' },
+        { id: 6, cat: 'aseo', nombre: 'Desodorante MELAO 50ml', precio: 300, img: 'desodorante_melao_50ml.jpg' },
+        // ALIMENTOS
+        { id: 7, cat: 'alimentos', nombre: 'Leche Condensada Marwa 390g', precio: 465, img: 'leche_condensada_marwa.jpg' },
+        { id: 8, cat: 'alimentos', nombre: 'Arroz Rio Grande 1kg', precio: 620, img: 'arroz_riogrande.jpg' },
+        { id: 9, cat: 'alimentos', nombre: 'Pasta de Tomate Marwa 210g', precio: 260, img: 'pastadetomate_marwa.jpg' },
+        { id: 10, cat: 'alimentos', nombre: 'Salsa Tomate Italiana 200g', precio: 260, img: 'salsadetomate_italiana_marwa.jpg' },
+        { id: 11, cat: 'alimentos', nombre: 'Sopitas Midooles 80g', precio: 185, img: 'sopitas_midooles.jpg' },
+        { id: 12, cat: 'alimentos', nombre: 'Sopitas Richester Lamen', precio: 175, img: 'sopitasrichester_lamen_74.3g.jpg' },
+        { id: 13, cat: 'alimentos', nombre: 'Sazón Pollo Marwa 10g', precio: 50, img: 'sazondepollo_marwa_100g.jpg' },
+        // BEBIDAS
+        { id: 14, cat: 'bebidas', nombre: 'Refresco Mayar 14g', precio: 30, img: 'refresco_mayar.jpg' },
+        { id: 15, cat: 'bebidas', nombre: 'Refresco Frutti 14g', precio: 25, img: 'refresco_frutti.jpg' },
+        { id: 16, cat: 'bebidas', nombre: 'Refresco Marwa 14g', precio: 27, img: 'refresco_marwa_14g.jpg' },
+        // CONFITURAS
+        { id: 17, cat: 'confituras', nombre: 'Galletas Hi Hello 55g', precio: 120, img: 'galletas_hi_hello.jpg' },
+        { id: 18, cat: 'confituras', nombre: 'Galletas Creamy Delight', precio: 50, img: 'galletas_creamy_delight.jpg' },
+        { id: 19, cat: 'confituras', nombre: 'Galletas Hola 70g', precio: 150, img: 'galletas_hola.jpg' },
+        { id: 20, cat: 'confituras', nombre: 'Galletas Fun it 36g', precio: 90, img: 'galletas_fun_it.jpg' },
+        { id: 21, cat: 'confituras', nombre: 'Galletas Cream Cracker 350g', precio: 650, img: 'galletasrichester_creamcraker.jpg' },
+        { id: 22, cat: 'confituras', nombre: 'Galletas Richester María', precio: 650, img: 'galletas_richester_maria.jpg' }
+    ];
+
+    let carrito = {};
+
+    function renderProductos() {
+        productos.forEach(p => {
+            const html = `
+                <div class="producto-card">
+                    <img src="${p.img}" alt="${p.nombre}">
+                    <div class="detalles">
+                        <h3>${p.nombre}</h3>
+                        <span class="precio">$${p.precio}</span>
+                        <div class="controles">
+                            <button class="btn-qty" onclick="cambiarCant(${p.id}, -1)">-</button>
+                            <span class="qty-val" id="qty-${p.id}">0</span>
+                            <button class="btn-qty" onclick="cambiarCant(${p.id}, 1)">+</button>
+                        </div>
+                    </div>
+                </div>`;
+            document.getElementById('cat-' + p.cat).innerHTML += html;
+        });
+    }
+
+    function cambiarCant(id, delta) {
+        if (!carrito[id]) carrito[id] = 0;
+        carrito[id] = Math.max(0, carrito[id] + delta);
+        document.getElementById(`qty-${id}`).innerText = carrito[id];
+        actualizarTotal();
+    }
+
+    function actualizarTotal() {
+        let total = 0;
+        productos.forEach(p => {
+            if (carrito[p.id]) total += p.precio * carrito[p.id];
+        });
+        document.getElementById('total-general').innerText = total;
+    }
+
+    function mostrarDesglose() {
+        let listado = "";
+        let total = 0;
+        productos.forEach(p => {
+            if (carrito[p.id] > 0) {
+                let subtotal = p.precio * carrito[p.id];
+                total += subtotal;
+                listado += `<div class="linea-contable">
+                    <span>${carrito[p.id]} x ${p.nombre}</span>
+                    <span>$${subtotal}</span>
+                </div>`;
+            }
+        });
+        if (total === 0) return alert("El carrito está vacío. ¡Elige algo rico!");
+        document.getElementById('lista-contable').innerHTML = listado;
+        document.getElementById('total-modal').innerText = "$" + total;
+        document.querySelector('.overlay').style.display = 'block';
+        document.getElementById('modal-desglose').style.display = 'block';
+    }
+
+    function cerrarModal() {
+        document.querySelector('.overlay').style.display = 'none';
+        document.getElementById('modal-desglose').style.display = 'none';
+    }
+
+    function enviarWhatsApp() {
+        let mensaje = "🧾 *PEDIDO - ESQUINA HEREDIA 🦋*%0A---------------------------%0A";
+        let total = 0;
+        productos.forEach(p => {
+            if (carrito[p.id] > 0) {
+                let sub = p.precio * carrito[p.id];
+                total += sub;
+                mensaje += `✅ ${carrito[p.id]} x ${p.nombre} ($${sub})%0A`;
+            }
+        });
+        mensaje += `---------------------------%0A💰 *TOTAL A PAGAR: $${total}*`;
+        window.open(`https://wa.me/5356431944?text=${mensaje}`);
+    }
+
+    renderProductos();
+</script>
+</body>
+</html>
