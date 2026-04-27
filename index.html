@@ -1,256 +1,1069 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esquina Heredia | Tienda Online</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root { 
-            --naranja: #e67e22; 
-            --verde: #27ae60; 
-            --oscuro: #2c3e50; 
-            --gris: #f4f7f6; 
-            --blanco: #ffffff;
-        }
-        
-        body { font-family: 'Roboto', sans-serif; background: var(--gris); margin: 0; padding-bottom: 120px; }
-        
-        /* Header Elegante */
-        header { 
-            background: var(--blanco); 
-            text-align: center; 
-            padding: 20px; 
-            border-bottom: 4px solid var(--naranja);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .logo-tienda { width: 100%; max-width: 450px; border-radius: 10px; }
-        
-        .nombres-dueños { font-family: 'Dancing Script', cursive; font-size: 2.2rem; color: var(--naranja); margin: 10px 0; }
-        .direccion { font-size: 0.9rem; color: var(--oscuro); margin-bottom: 15px; font-weight: bold; }
-        .direccion i { color: var(--naranja); }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Esquina Heredia | Tienda Online</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@400;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+/*
+  ╔══════════════════════════════════════════════════════╗
+  ║  GUÍA DE IMÁGENES — colocar en misma carpeta         ║
+  ║  foto_tienda_esquina_heredia.jpg  ← portada header   ║
+  ║  smart_tv_vision_43.jpg                              ║
+  ║  galletas_hi_hello_55g.jpg                           ║
+  ║  galletas_creamy_delight.jpg                         ║
+  ║  galletas_hola_70g.jpg                               ║
+  ║  galletas_fun_it_36g.jpg                             ║
+  ║  galletas_cream_cracker_350g.jpg                     ║
+  ║  galletas_richester_maria.jpg                        ║
+  ║  leche_condensada_marwa_390g.jpg                     ║
+  ║  arroz_rio_grande_1kg.jpg                            ║
+  ║  pasta_de_tomate_marwa_210g.jpg                      ║
+  ║  salsa_tomate_italiana_200g.jpg                      ║
+  ║  sopitas_midooles_80g.jpg                            ║
+  ║  sopitas_richester_lamen.jpg                         ║
+  ║  sazon_pollo_marwa_10g.jpg                           ║
+  ║  refresco_mayar_14g.jpg                              ║
+  ║  refresco_frutti_14g.jpg                             ║
+  ║  refresco_marwa_14g.jpg                              ║
+  ║  champu_head_shoulders_400ml.jpg                     ║
+  ║  pasta_dental_coolwhite_120g.jpg                     ║
+  ║  pasta_aloe_vera_crogate_100g.jpg                    ║
+  ║  pasta_freedent_90g.jpg                              ║
+  ║  desodorante_melao_50ml.jpg                          ║
+  ║  Si falta foto → emoji automático                    ║
+  ╚══════════════════════════════════════════════════════╝
+*/
+:root {
+  --naranja: #e8772e;
+  --verde: #2ecc71;
+  --verde-dark: #27ae60;
+  --oscuro: #1a2332;
+  --oscuro2: #243447;
+  --blanco: #ffffff;
+  --gris-claro: #f7f8fa;
+  --gris: #e8ecf0;
+  --texto: #2d3748;
+  --texto-light: #718096;
+  --sombra: 0 4px 20px rgba(0,0,0,0.08);
+  --sombra-lg: 0 10px 40px rgba(0,0,0,0.15);
+  --radio: 16px;
+  --radio-sm: 10px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--gris-claro);
+  color: var(--texto);
+  padding-bottom: 100px;
+  min-height: 100vh;
+}
 
-        .btn-whatsapp-header {
-            display: inline-flex;
-            align-items: center;
-            background-color: #25d366;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9rem;
-            gap: 8px;
-        }
+/* ── HEADER ── CORRECCIÓN: sin overflow:hidden para no bloquear zona secreta */
+header {
+  background: var(--blanco);
+  border-bottom: 3px solid var(--naranja);
+  box-shadow: var(--sombra);
+  text-align: center;
+  position: relative;
+}
+.portada-tienda { width:100%; max-height:240px; object-fit:cover; display:block; }
+.header-info { padding: 16px 16px 18px; }
+.nombres-duenos {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem; color: var(--oscuro); font-weight: 700; margin-bottom: 4px;
+}
+.nombres-duenos span { color: var(--naranja); }
+.direccion { font-size: 0.82rem; color: var(--texto-light); margin-bottom: 14px; font-weight: 600; }
+.direccion i { color: var(--naranja); margin-right: 4px; }
+.btns-contacto { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.btn-wa {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: #25d366; color: white; padding: 10px 20px;
+  border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.88rem;
+  box-shadow: 0 4px 12px rgba(37,211,102,0.35); -webkit-tap-highlight-color: transparent;
+}
+.btn-wa:active { transform: scale(0.97); }
 
-        /* Categorías */
-        .categoria-header { 
-            background: var(--oscuro); 
-            color: white; 
-            padding: 12px 20px; 
-            font-weight: bold; 
-            margin-top: 25px; 
-            display: flex; 
-            align-items: center; 
-            gap: 10px; 
-            border-left: 6px solid var(--naranja);
-        }
-        .contenedor { display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: 15px; padding: 15px; }
-        
-        /* Tarjetas de Producto */
-        .producto-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column; border: 1px solid #eee; transition: 0.3s; }
-        .producto-card img { width: 100%; height: 160px; object-fit: cover; background: #f9f9f9; }
-        .detalles { padding: 12px; text-align: center; flex-grow: 1; }
-        .detalles h3 { font-size: 0.9rem; margin: 5px 0; height: 35px; overflow: hidden; color: var(--oscuro); }
-        .precio { color: var(--naranja); font-weight: bold; font-size: 1.2rem; display: block; margin-bottom: 10px; }
-        
-        /* Controles */
-        .controles { display: flex; justify-content: center; align-items: center; gap: 12px; margin-bottom: 5px; }
-        .btn-qty { background: #eee; border: none; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-weight: bold; }
-        .qty-val { font-weight: bold; min-width: 20px; }
+/* ── BANNER TASA ── */
+#banner-tasa {
+  background: linear-gradient(135deg, var(--oscuro), var(--oscuro2));
+  color: white; padding: 10px 16px; text-align: center;
+  font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px;
+}
+#banner-tasa span { color: var(--naranja); font-weight: 800; }
 
-        /* Carrito Barra Inferior */
-        .carrito-barra { position: fixed; bottom: 0; width: 100%; background: var(--oscuro); color: white; padding: 15px 0; display: flex; justify-content: space-around; align-items: center; z-index: 1000; }
-        .btn-pagar { background: var(--verde); color: white; border: none; padding: 12px 25px; border-radius: 30px; font-weight: bold; cursor: pointer; }
+/* ── CATEGORÍAS ── */
+.categoria-header {
+  background: var(--oscuro); color: white;
+  padding: 14px 20px; margin-top: 20px;
+  font-weight: 800; font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase;
+  display: flex; align-items: center; gap: 10px;
+  border-left: 5px solid var(--naranja);
+}
+.categoria-header i { color: var(--naranja); font-size: 1.1rem; }
 
-        /* Modal */
-        #modal-desglose { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; width: 90%; max-width: 450px; padding: 25px; border-radius: 20px; z-index: 2000; box-shadow: 0 0 30px rgba(0,0,0,0.5); }
-        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1500; }
-        .linea-contable { display: flex; justify-content: space-between; border-bottom: 1px dashed #ddd; padding: 8px 0; font-family: monospace; }
-        
-        /* Footer Promoción Miguel */
-        footer { background: #1a252f; color: white; padding: 40px 20px; text-align: center; }
-        .dev-promo { border: 1px dashed rgba(255,255,255,0.2); padding: 20px; border-radius: 15px; display: inline-block; }
-        .firma { font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: var(--naranja); }
-    </style>
+/* ── GRID PRODUCTOS ── */
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 14px; padding: 14px;
+}
+
+/* ── CARD ── */
+.producto-card {
+  background: var(--blanco); border-radius: var(--radio);
+  overflow: hidden; box-shadow: var(--sombra);
+  display: flex; flex-direction: column;
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: transform 0.15s;
+}
+.producto-card:active { transform: scale(0.98); }
+
+/* CORRECCIÓN: bug doble imagen resuelto con posición absoluta y clase CSS */
+.producto-img-wrap {
+  position: relative; width: 100%; height: 155px;
+  background: var(--gris); overflow: hidden;
+}
+.producto-img-wrap img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.emoji-fallback {
+  position: absolute; inset: 0; display: none;
+  align-items: center; justify-content: center; font-size: 3rem;
+  background: linear-gradient(135deg, #f0f4f8, #e8ecf0);
+}
+/* Cuando imagen falla → ocultar img y mostrar emoji */
+.producto-img-wrap.sin-foto img { display: none; }
+.producto-img-wrap.sin-foto .emoji-fallback { display: flex; }
+/* Producto sin img definida → solo emoji desde inicio */
+.producto-img-wrap.solo-emoji img { display: none; }
+.producto-img-wrap.solo-emoji .emoji-fallback { display: flex; }
+
+.producto-info { padding: 12px; flex-grow: 1; display: flex; flex-direction: column; }
+.producto-nombre {
+  font-size: 0.85rem; font-weight: 700; color: var(--oscuro);
+  margin-bottom: 6px; line-height: 1.3; min-height: 34px;
+}
+.producto-precio {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; font-weight: 700; color: var(--naranja); margin-bottom: 10px;
+}
+.producto-precio small {
+  font-size: 0.7rem; color: var(--texto-light);
+  font-family: 'Nunito', sans-serif; display: block; font-weight: 600;
+}
+.controles { display:flex; align-items:center; justify-content:center; gap:10px; margin-top:auto; }
+.btn-qty {
+  width: 34px; height: 34px; border-radius: 10px; border: none;
+  background: var(--gris); color: var(--texto); font-size: 1.1rem; font-weight: 700;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-qty:active { background: var(--naranja); color: white; }
+.qty-val { font-weight: 800; font-size: 1rem; min-width: 24px; text-align: center; }
+
+/* ── BARRA CARRITO ── */
+#barra-carrito {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: var(--oscuro); padding: 14px 20px;
+  display: flex; justify-content: space-between; align-items: center;
+  z-index: 100; box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+}
+.carrito-label { font-size:0.72rem; color:rgba(255,255,255,0.55); text-transform:uppercase; letter-spacing:1px; }
+.carrito-total { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:700; color:var(--naranja); }
+.btn-pagar {
+  background: linear-gradient(135deg,var(--verde),var(--verde-dark));
+  color:white; border:none; padding:13px 22px; border-radius:50px;
+  font-family:'Nunito',sans-serif; font-weight:800; font-size:0.88rem; cursor:pointer;
+  display:flex; align-items:center; gap:8px;
+  box-shadow:0 4px 15px rgba(46,204,113,0.4); -webkit-tap-highlight-color:transparent;
+}
+.btn-pagar:active { transform:scale(0.97); }
+
+/* ── OVERLAY ── */
+.overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.72); z-index:200; backdrop-filter:blur(4px); }
+.overlay.activo { display:block; }
+
+/* ── MODALES ── */
+.modal {
+  display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);
+  background:var(--blanco); border-radius:20px; padding:24px;
+  width:92%; max-width:460px; z-index:300; max-height:90vh; overflow-y:auto;
+  box-shadow:var(--sombra-lg);
+}
+.modal.activo { display:block; }
+.modal-titulo {
+  font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:700;
+  color:var(--oscuro); margin-bottom:20px; text-align:center;
+  display:flex; align-items:center; justify-content:center; gap:8px;
+}
+.linea-pedido {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:10px 0; border-bottom:1px dashed var(--gris); font-size:0.9rem;
+}
+.linea-pedido:last-child { border-bottom:none; }
+.pedido-nombre { color:var(--texto); font-weight:600; }
+.pedido-cant { color:var(--texto-light); font-size:0.8rem; }
+.pedido-sub { color:var(--naranja); font-weight:800; }
+.total-pedido {
+  margin-top:16px; padding:14px; background:var(--gris-claro);
+  border-radius:var(--radio-sm); display:flex; justify-content:space-between;
+  align-items:center; font-weight:800; font-size:1.1rem;
+}
+.total-pedido span:last-child { font-family:'Playfair Display',serif; color:var(--naranja); font-size:1.3rem; }
+.btn-enviar-wa {
+  width:100%; background:linear-gradient(135deg,#25d366,#128C7E); color:white; border:none;
+  padding:16px; border-radius:var(--radio-sm); font-family:'Nunito',sans-serif;
+  font-weight:800; font-size:1rem; cursor:pointer; margin-top:14px;
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  box-shadow:0 4px 15px rgba(37,211,102,0.35);
+}
+.btn-cerrar-modal {
+  width:100%; background:var(--gris); color:var(--texto); border:none; padding:12px;
+  border-radius:var(--radio-sm); font-family:'Nunito',sans-serif;
+  font-weight:700; font-size:0.9rem; cursor:pointer; margin-top:8px;
+}
+
+/* ── FOOTER — ZONA SECRETA aquí: "MAYA TRINITY TECH" → 5 toques → PIN ── */
+footer { background:var(--oscuro); color:white; padding:30px 20px; text-align:center; margin-top:20px; }
+.footer-dev {
+  border:1px dashed rgba(255,255,255,0.15); padding:18px; border-radius:var(--radio);
+  display:inline-block; max-width:340px;
+}
+.footer-etiqueta { font-size:0.65rem; letter-spacing:2px; color:rgba(255,255,255,0.3); text-transform:uppercase; margin-bottom:4px; }
+/* El texto "MAYA TRINITY TECH" ES el botón secreto — sin indicador visual, sin números */
+#zona-secreta {
+  font-family:'Playfair Display',serif; font-size:1.15rem; color:var(--naranja);
+  font-weight:700; margin-bottom:2px; cursor:default;
+  user-select:none; -webkit-user-select:none; -webkit-tap-highlight-color:transparent;
+  display:inline-block; padding:4px 12px;
+}
+.footer-nombre { font-family:'Dancing Script',cursive; font-size:1.4rem; color:var(--naranja); margin-bottom:6px; }
+.footer-cargo { font-size:0.75rem; color:rgba(255,255,255,0.5); line-height:1.8; }
+.footer-cta { margin-top:10px; font-size:0.75rem; color:rgba(255,255,255,0.3); font-style:italic; }
+
+/* ── PIN OVERLAY ── */
+#overlay-pin {
+  display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92);
+  z-index:900; align-items:center; justify-content:center; backdrop-filter:blur(8px);
+}
+#overlay-pin.activo { display:flex; }
+.pin-box {
+  background:var(--oscuro2); border-radius:20px; padding:30px 24px;
+  width:88%; max-width:340px; text-align:center;
+  border:1px solid rgba(255,255,255,0.1); box-shadow:var(--sombra-lg);
+}
+.pin-titulo { font-family:'Playfair Display',serif; font-size:1.2rem; color:white; margin-bottom:6px; }
+.pin-sub { font-size:0.8rem; color:rgba(255,255,255,0.4); margin-bottom:20px; }
+.pin-puntitos { display:flex; justify-content:center; gap:14px; margin-bottom:20px; }
+.pin-punto { width:16px; height:16px; border-radius:50%; background:rgba(255,255,255,0.15); transition:background 0.15s; }
+.pin-punto.lleno { background:var(--naranja); }
+.pin-teclado { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:14px; }
+.pin-key {
+  background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.1);
+  border-radius:12px; color:white; font-family:'Nunito',sans-serif;
+  font-size:1.3rem; font-weight:700; padding:14px; cursor:pointer;
+  -webkit-tap-highlight-color:transparent; transition:background 0.15s;
+}
+.pin-key:active { background:var(--naranja); }
+.pin-key-borrar { background:rgba(231,76,60,0.2); border-color:rgba(231,76,60,0.3); color:#e74c3c; }
+.pin-key-borrar:active { background:#e74c3c; color:white; }
+.pin-cancelar {
+  background:transparent; border:none; color:rgba(255,255,255,0.35);
+  font-family:'Nunito',sans-serif; font-size:0.9rem; cursor:pointer; padding:8px 20px;
+}
+
+/* ── PANEL ADMIN ── */
+#panel-admin {
+  display:none; position:fixed; inset:0; background:#0f1923;
+  z-index:1000; overflow-y:auto; font-family:'Nunito',sans-serif;
+}
+#panel-admin.activo { display:block; }
+.admin-header {
+  background:linear-gradient(135deg,var(--oscuro),var(--oscuro2));
+  padding:18px 16px; display:flex; justify-content:space-between; align-items:center;
+  border-bottom:3px solid var(--naranja); position:sticky; top:0; z-index:10;
+}
+.admin-titulo { font-family:'Playfair Display',serif; font-size:1.2rem; color:white; font-weight:700; }
+.admin-titulo span { color:var(--naranja); }
+.btn-cerrar-admin {
+  background:rgba(255,255,255,0.1); border:none; color:white;
+  width:36px; height:36px; border-radius:10px; cursor:pointer;
+  font-size:1rem; display:flex; align-items:center; justify-content:center;
+}
+.admin-body { padding:16px; }
+.admin-tabs {
+  display:flex; background:rgba(255,255,255,0.05); border-radius:var(--radio-sm);
+  padding:4px; gap:4px; margin-bottom:20px; overflow-x:auto;
+}
+.tab-btn {
+  flex:1; min-width:70px; padding:10px 6px; border:none; border-radius:8px;
+  background:transparent; color:rgba(255,255,255,0.5);
+  font-family:'Nunito',sans-serif; font-size:0.75rem; font-weight:700;
+  cursor:pointer; text-align:center; white-space:nowrap; transition:all 0.2s;
+}
+.tab-btn.activo { background:var(--naranja); color:white; }
+.tab-content { display:none; }
+.tab-content.activo { display:block; }
+.stats-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px; }
+.stat-card {
+  background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);
+  border-radius:var(--radio); padding:16px 12px; text-align:center;
+}
+.stat-valor { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700; color:var(--naranja); display:block; }
+.stat-label { font-size:0.72rem; color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:0.5px; margin-top:4px; display:block; }
+.admin-card {
+  background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);
+  border-radius:var(--radio); padding:18px; margin-bottom:16px;
+}
+.admin-card-titulo {
+  font-size:0.8rem; font-weight:800; color:var(--naranja);
+  text-transform:uppercase; letter-spacing:1px; margin-bottom:14px;
+  display:flex; align-items:center; gap:8px;
+}
+.campo-grupo { margin-bottom:14px; }
+.campo-label { display:block; font-size:0.8rem; font-weight:700; color:rgba(255,255,255,0.7); margin-bottom:6px; }
+.campo-input {
+  width:100%; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15);
+  border-radius:10px; padding:11px 14px; color:white;
+  font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:600;
+  outline:none; transition:border-color 0.2s;
+}
+.campo-input:focus { border-color:var(--naranja); }
+.campo-input::placeholder { color:rgba(255,255,255,0.3); }
+.btn-admin {
+  width:100%; padding:13px; border:none; border-radius:var(--radio-sm);
+  font-family:'Nunito',sans-serif; font-weight:800; font-size:0.92rem; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:8px;
+  transition:transform 0.1s;
+}
+.btn-admin:active { transform:scale(0.98); }
+.btn-admin-naranja { background:var(--naranja); color:white; }
+.btn-admin-verde { background:var(--verde); color:white; }
+.btn-admin-rojo { background:#e74c3c; color:white; }
+.btn-admin-gris { background:rgba(255,255,255,0.1); color:white; }
+.inventario-item {
+  background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--radio-sm); padding:12px 14px; margin-bottom:10px;
+  display:flex; align-items:center; gap:12px;
+}
+.inventario-item.agotado { border-color:rgba(231,76,60,0.3); }
+.inv-info { flex:1; min-width:0; }
+.inv-nombre { font-size:0.85rem; font-weight:700; color:white; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.inv-detalles { font-size:0.75rem; color:rgba(255,255,255,0.5); margin-top:2px; }
+.inv-stock { text-align:right; min-width:50px; }
+.stock-val { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; display:block; }
+.stock-val.bajo { color:#e74c3c; }
+.stock-val.medio { color:#f39c12; }
+.stock-val.ok { color:var(--verde); }
+.stock-label { font-size:0.65rem; color:rgba(255,255,255,0.4); text-transform:uppercase; }
+.btn-inv-edit {
+  background:rgba(255,255,255,0.08); border:none; color:rgba(255,255,255,0.6);
+  width:32px; height:32px; border-radius:8px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; font-size:0.85rem;
+}
+.venta-item {
+  background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--radio-sm); padding:12px 14px; margin-bottom:10px;
+}
+.venta-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
+.venta-hora { font-size:0.75rem; color:rgba(255,255,255,0.5); }
+.venta-total { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--verde); font-weight:700; }
+.venta-detalle { font-size:0.78rem; color:rgba(255,255,255,0.45); line-height:1.5; }
+.vacio-msg { text-align:center; padding:30px; color:rgba(255,255,255,0.3); font-size:0.9rem; }
+.vacio-msg i { font-size:2rem; display:block; margin-bottom:10px; }
+.pin-recovery-note { font-size:0.7rem; color:rgba(255,255,255,0.2); text-align:center; margin-top:6px; font-style:italic; }
+
+/* ── TOAST ── */
+#toast {
+  position:fixed; bottom:120px; left:50%; transform:translateX(-50%) translateY(20px);
+  background:var(--oscuro); color:white; padding:12px 24px; border-radius:50px;
+  font-size:0.85rem; font-weight:700; z-index:9999; opacity:0; transition:all 0.3s;
+  border-left:4px solid var(--naranja); white-space:nowrap; pointer-events:none;
+}
+#toast.mostrar { opacity:1; transform:translateX(-50%) translateY(0); }
+</style>
 </head>
 <body>
 
+<!-- ═══ HEADER ═══ -->
 <header>
-    <img src="logo_heredia.jpg" alt="Esquina Heredia" class="logo-tienda">
-    <div class="nombres-dueños">Yaniuska Y Willsom</div>
-    <div class="direccion">
-        <i class="fas fa-map-marker-alt"></i> Julián Santana #98A, Entre Lora y Nicolás Heredia
+  <img src="foto_tienda_esquina_heredia.jpg" alt="Esquina Heredia" class="portada-tienda"
+       onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';">
+  <div id="logo-fallback" style="display:none; background:linear-gradient(135deg,#1a2332,#243447); padding:30px 20px; flex-direction:column; align-items:center; gap:6px;">
+    <div style="font-family:'Playfair Display',serif; font-size:2rem; font-weight:900; color:#e8772e; letter-spacing:2px;">🦋 Esquina Heredia</div>
+    <div style="font-size:0.75rem; color:rgba(255,255,255,0.5); letter-spacing:4px; text-transform:uppercase;">Tienda Online</div>
+  </div>
+  <div class="header-info">
+    <div class="nombres-duenos">Yaniuska <span>&</span> Willsom</div>
+    <div class="direccion"><i class="fas fa-map-marker-alt"></i> Julián Santana #98A, Entre Lora y Nicolás Heredia</div>
+    <div class="btns-contacto">
+      <a href="https://wa.me/5356431944" class="btn-wa"><i class="fab fa-whatsapp"></i> Yaniuska</a>
+      <a href="https://wa.me/5359459678" class="btn-wa"><i class="fab fa-whatsapp"></i> Willsom</a>
     </div>
-    <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
-        <a href="https://wa.me/5356431944" class="btn-whatsapp-header"><i class="fab fa-whatsapp"></i> Yaniuska</a>
-        <a href="https://wa.me/5359459678" class="btn-whatsapp-header"><i class="fab fa-whatsapp"></i> Willsom</a>
-    </div>
+  </div>
 </header>
 
-<div class="categoria-header"><i class="fas fa-tv"></i> ELECTRODOMÉSTICOS</div>
-<div class="contenedor" id="cat-electro"></div>
+<div id="banner-tasa">💵 Tasa del día: 1 USD = <span id="tasa-display">---</span> CUP</div>
 
-<div class="categoria-header"><i class="fas fa-cookie"></i> CONFITURAS Y DULCES</div>
-<div class="contenedor" id="cat-confituras"></div>
+<!-- ═══ TIENDA ═══ -->
+<div id="tienda-contenido"></div>
 
-<div class="categoria-header"><i class="fas fa-utensils"></i> ALIMENTOS Y DESPENSA</div>
-<div class="contenedor" id="cat-alimentos"></div>
-
-<div class="categoria-header"><i class="fas fa-wine-bottle"></i> BEBIDAS Y REFRESCOS</div>
-<div class="contenedor" id="cat-bebidas"></div>
-
-<div class="categoria-header"><i class="fas fa-soap"></i> ASEO PERSONAL Y HOGAR</div>
-<div class="contenedor" id="cat-aseo"></div>
-
+<!-- ═══ FOOTER — "MAYA TRINITY TECH" = zona de 5 toques secretos ═══ -->
 <footer>
-    <div class="dev-promo">
-        <p style="margin:0">Desarrollado por:</p>
-        <div class="firma">Miguel Acosta Neira </div>
-        <p style="font-size: 0.8rem; margin: 10px 0;">
-            ¿Quieres una web como esta para tu negocio?<br>
-            📧 miguel8904@gmail.com | 📱 +53 51336140
-        </p>
+  <div class="footer-dev">
+    <div class="footer-etiqueta">Desarrollado por</div>
+    <!--
+      ZONA SECRETA: tocar este texto 5 veces activa el PIN de admin.
+      No hay número visible. No parpadea. El cliente nunca lo nota.
+      Tiempo de reinicio: 3 segundos sin tocar.
+    -->
+    <div id="zona-secreta">MAYA TRINITY TECH</div>
+    <div class="footer-nombre">Miguel Acosta Neira</div>
+    <div class="footer-cargo">
+      Ingeniero de Software · Manatí, Las Tunas<br>
+      📧 acostaneiramiguel@gmail.com · 📱 +53 53383049
     </div>
+    <div class="footer-cta">¿Quieres una app como esta para tu negocio?</div>
+  </div>
 </footer>
 
-<div class="carrito-barra">
-    <div style="font-weight:bold">Total: $<span id="total-general">0</span></div>
-    <button class="btn-pagar" onclick="mostrarDesglose()"><i class="fas fa-shopping-cart"></i> REVISAR PEDIDO</button>
+<!-- ═══ BARRA CARRITO ═══ -->
+<div id="barra-carrito">
+  <div>
+    <div class="carrito-label">Tu pedido</div>
+    <div class="carrito-total"><span id="total-general">0</span> CUP</div>
+  </div>
+  <button class="btn-pagar" onclick="abrirModalPedido()">
+    <i class="fas fa-shopping-cart"></i> REVISAR PEDIDO
+  </button>
 </div>
 
-<div class="overlay" onclick="cerrarModal()"></div>
-<div id="modal-desglose">
-    <h3 style="text-align:center; color: var(--naranja);">🧾 RESUMEN DE COMPRA</h3>
-    <div id="lista-contable"></div>
-    <div style="display:flex; justify-content: space-between; font-weight:bold; font-size:1.3rem; margin-top:20px;">
-        <span>TOTAL:</span><span id="total-modal">$0</span>
-    </div>
-    <button onclick="enviarWhatsApp()" style="width:100%; background:#25d366; color:white; border:none; padding:15px; border-radius:10px; margin-top:20px; font-weight:bold; cursor:pointer;">
-        ENVIAR PEDIDO A YANIUSKA
-    </button>
+<div class="overlay" id="overlay-general" onclick="cerrarModales()"></div>
+
+<!-- Modal pedido -->
+<div class="modal" id="modal-pedido">
+  <div class="modal-titulo"><i class="fas fa-receipt"></i> Resumen de Compra</div>
+  <div id="lista-pedido"></div>
+  <div class="total-pedido">
+    <span>TOTAL A PAGAR</span>
+    <span id="total-modal-val">0 CUP</span>
+  </div>
+  <button class="btn-enviar-wa" onclick="enviarWhatsApp()"><i class="fab fa-whatsapp"></i> ENVIAR PEDIDO A YANIUSKA</button>
+  <button class="btn-cerrar-modal" onclick="cerrarModales()">Cerrar</button>
 </div>
+
+<!-- Modal editar producto -->
+<div class="modal" id="modal-editar">
+  <div class="modal-titulo"><i class="fas fa-edit"></i> Editar Producto</div>
+  <input type="hidden" id="edit-id">
+  <div class="campo-grupo">
+    <label class="campo-label" style="color:var(--texto)">Nombre del producto</label>
+    <input class="campo-input" id="edit-nombre" type="text" style="background:#f7f8fa;border-color:#ddd;color:var(--texto)">
+  </div>
+  <div class="campo-grupo">
+    <label class="campo-label" style="color:var(--texto)">Precio en USD ($)</label>
+    <input class="campo-input" id="edit-precio-usd" type="number" step="0.01" style="background:#f7f8fa;border-color:#ddd;color:var(--texto)">
+  </div>
+  <div class="campo-grupo">
+    <label class="campo-label" style="color:var(--texto)">Stock (unidades)</label>
+    <input class="campo-input" id="edit-stock" type="number" style="background:#f7f8fa;border-color:#ddd;color:var(--texto)">
+  </div>
+  <div class="campo-grupo">
+    <label class="campo-label" style="color:var(--texto)">Archivo de imagen (.jpg)</label>
+    <input class="campo-input" id="edit-img" type="text" placeholder="ej: galletas_hola_70g.jpg" style="background:#f7f8fa;border-color:#ddd;color:var(--texto)">
+  </div>
+  <div class="campo-grupo">
+    <label class="campo-label" style="color:var(--texto)">Categoría</label>
+    <select class="campo-input" id="edit-cat" style="background:#f7f8fa;border-color:#ddd;color:var(--texto)">
+      <option value="electro">Electrodomésticos</option>
+      <option value="confituras">Confituras y Dulces</option>
+      <option value="alimentos">Alimentos y Despensa</option>
+      <option value="bebidas">Bebidas y Refrescos</option>
+      <option value="aseo">Aseo Personal y Hogar</option>
+    </select>
+  </div>
+  <button class="btn-admin btn-admin-naranja" onclick="guardarEdicion()" style="margin-top:8px"><i class="fas fa-save"></i> Guardar Cambios</button>
+  <button class="btn-cerrar-modal" onclick="cerrarModales()">Cancelar</button>
+</div>
+
+<!-- ═══ PIN OVERLAY ═══ -->
+<div id="overlay-pin">
+  <div class="pin-box">
+    <div class="pin-titulo">🔐 Panel Admin</div>
+    <div class="pin-sub">Ingresa tu PIN de administrador</div>
+    <div class="pin-puntitos">
+      <div class="pin-punto" id="p0"></div>
+      <div class="pin-punto" id="p1"></div>
+      <div class="pin-punto" id="p2"></div>
+      <div class="pin-punto" id="p3"></div>
+    </div>
+    <div class="pin-teclado">
+      <button class="pin-key" onmousedown="event.preventDefault()" onclick="pinKey('1')">1</button>
+      <button class="pin-key" onmousedown="event.preventDefault()" onclick="pinKey('2')">2</button>
+      <button class="pin-key" onmousedown="event.preventDefault()" onclick="pinKey('3')">3</button>
+      <button class="pin-key" onmousedown="event.preventDefault()" onclick="pinKey('4')">4</button>
+      <button class="pin-key" onmousedown="event.preventDefault()" onclick="pinKey('5')">5</button>
+      <button class="pin-key" onmousedown="event.preventDefault()" onclick="pinKey('6')">6</button>
+      <button class="pin-key" onmousedown="event.preventDefault()" onclick="pinKey('7')">7</button>
+      <button class="pin-key" onmousedown="event.preventDefault()" onclick="pinKey('8')">8</button>
+      <button class="pin-key" onmousedown="event.preventDefault()" onclick="pinKey('9')">9</button>
+      <button class="pin-key pin-key-borrar" onmousedown="event.preventDefault()" onclick="pinBorrar()"><i class="fas fa-backspace"></i></button>
+      <button class="pin-key" onmousedown="event.preventDefault()" onclick="pinKey('0')">0</button>
+      <button class="pin-key" style="opacity:0;pointer-events:none;" disabled></button>
+    </div>
+    <button class="pin-cancelar" onclick="cerrarPin()">Cancelar</button>
+  </div>
+</div>
+
+<!-- ═══ PANEL ADMIN ═══ -->
+<div id="panel-admin">
+  <div class="admin-header">
+    <div class="admin-titulo">Panel <span>Heredia</span></div>
+    <button class="btn-cerrar-admin" onclick="cerrarAdmin()"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="admin-body">
+    <div class="admin-tabs">
+      <button class="tab-btn activo" onclick="cambiarTab('tab-resumen',this)"><i class="fas fa-chart-bar"></i> Resumen</button>
+      <button class="tab-btn" onclick="cambiarTab('tab-config',this)"><i class="fas fa-cog"></i> Config</button>
+      <button class="tab-btn" onclick="cambiarTab('tab-inventario',this)"><i class="fas fa-boxes"></i> Stock</button>
+      <button class="tab-btn" onclick="cambiarTab('tab-ventas',this)"><i class="fas fa-receipt"></i> Ventas</button>
+    </div>
+
+    <!-- TAB RESUMEN -->
+    <div class="tab-content activo" id="tab-resumen">
+      <div class="stats-grid">
+        <div class="stat-card"><span class="stat-valor" id="stat-ventas-hoy">0</span><span class="stat-label">Ventas hoy</span></div>
+        <div class="stat-card"><span class="stat-valor" id="stat-ingresos-cup">0</span><span class="stat-label">Total CUP</span></div>
+        <div class="stat-card"><span class="stat-valor" id="stat-ganancia-usd">$0</span><span class="stat-label">Ganancia USD</span></div>
+        <div class="stat-card"><span class="stat-valor" id="stat-tasa">---</span><span class="stat-label">Tasa hoy</span></div>
+      </div>
+      <div class="admin-card">
+        <div class="admin-card-titulo"><i class="fas fa-dollar-sign"></i> Tasa del Día</div>
+        <div class="campo-grupo">
+          <label class="campo-label">1 USD = ? CUP</label>
+          <input class="campo-input" id="input-tasa" type="number" placeholder="ej: 538">
+        </div>
+        <button class="btn-admin btn-admin-naranja" onclick="actualizarTasa()"><i class="fas fa-sync-alt"></i> Actualizar Tasa y Recalcular Precios</button>
+      </div>
+      <div class="admin-card">
+        <div class="admin-card-titulo"><i class="fas fa-box-open"></i> Alertas de Stock</div>
+        <div id="alertas-stock"></div>
+      </div>
+      <div class="admin-card">
+        <div class="admin-card-titulo"><i class="fas fa-cash-register"></i> Cierre de Caja</div>
+        <button class="btn-admin btn-admin-verde" onclick="exportarCierre()"><i class="fab fa-whatsapp"></i> Enviar Cierre por WhatsApp</button>
+        <button class="btn-admin btn-admin-rojo" onclick="cerrarCaja()"><i class="fas fa-archive"></i> Archivar Día y Reiniciar</button>
+      </div>
+    </div>
+
+    <!-- TAB CONFIG -->
+    <div class="tab-content" id="tab-config">
+      <div class="admin-card">
+        <div class="admin-card-titulo"><i class="fas fa-lock"></i> Seguridad</div>
+        <div class="campo-grupo">
+          <label class="campo-label">PIN actual (4 dígitos)</label>
+          <input class="campo-input" id="pin-actual" type="password" maxlength="4" placeholder="PIN actual">
+        </div>
+        <div class="campo-grupo">
+          <label class="campo-label">Nuevo PIN</label>
+          <input class="campo-input" id="pin-nuevo" type="password" maxlength="4" placeholder="Nuevo PIN (4 dígitos)">
+        </div>
+        <div class="campo-grupo">
+          <label class="campo-label">Confirmar nuevo PIN</label>
+          <input class="campo-input" id="pin-confirm" type="password" maxlength="4" placeholder="Repetir PIN">
+        </div>
+        <button class="btn-admin btn-admin-naranja" onclick="cambiarPin()"><i class="fas fa-key"></i> Cambiar PIN</button>
+        <div class="pin-recovery-note">Si olvidas tu PIN contacta al administrador de red</div>
+      </div>
+      <div class="admin-card">
+        <div class="admin-card-titulo"><i class="fas fa-plus-circle"></i> Nuevo Producto</div>
+        <div class="campo-grupo">
+          <label class="campo-label">Nombre</label>
+          <input class="campo-input" id="nuevo-nombre" type="text" placeholder="Nombre del producto">
+        </div>
+        <div class="campo-grupo">
+          <label class="campo-label">Precio USD ($)</label>
+          <input class="campo-input" id="nuevo-precio-usd" type="number" step="0.01" placeholder="ej: 1.50">
+        </div>
+        <div class="campo-grupo">
+          <label class="campo-label">Stock inicial</label>
+          <input class="campo-input" id="nuevo-stock" type="number" placeholder="ej: 24">
+        </div>
+        <div class="campo-grupo">
+          <label class="campo-label">Archivo de imagen (.jpg)</label>
+          <input class="campo-input" id="nuevo-img" type="text" placeholder="ej: producto_nuevo.jpg">
+        </div>
+        <div class="campo-grupo">
+          <label class="campo-label">Categoría</label>
+          <select class="campo-input" id="nuevo-cat">
+            <option value="electro">Electrodomésticos</option>
+            <option value="confituras">Confituras y Dulces</option>
+            <option value="alimentos">Alimentos y Despensa</option>
+            <option value="bebidas">Bebidas y Refrescos</option>
+            <option value="aseo">Aseo Personal y Hogar</option>
+          </select>
+        </div>
+        <button class="btn-admin btn-admin-verde" onclick="agregarProducto()"><i class="fas fa-plus"></i> Agregar Producto</button>
+      </div>
+      <div class="admin-card">
+        <div class="admin-card-titulo"><i class="fas fa-trash-alt"></i> Zona de Peligro</div>
+        <button class="btn-admin btn-admin-gris" onclick="resetearTodo()"><i class="fas fa-redo"></i> Restaurar datos de fábrica</button>
+      </div>
+    </div>
+
+    <!-- TAB INVENTARIO — muestra TODOS incluyendo agotados -->
+    <div class="tab-content" id="tab-inventario">
+      <div style="font-size:0.75rem;color:rgba(255,255,255,0.35);text-align:center;padding:6px 0 14px;font-style:italic;">
+        Stock 0 = oculto en tienda pública · Edita para reabastecer
+      </div>
+      <div id="lista-inventario"></div>
+    </div>
+
+    <!-- TAB VENTAS -->
+    <div class="tab-content" id="tab-ventas">
+      <div id="lista-ventas"></div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
 
 <script>
-    const productos = [
-        // ELECTRODOMÉSTICOS
-        { id: 1, cat: 'electro', nombre: 'Smart TV VISION 43"', precio: 141000, img: 'smart_tv_vision_43.jpg' },
-        
-        // CONFITURAS Y DULCES
-        { id: 17, cat: 'confituras', nombre: 'Galletas Hi Hello 55g', precio: 120, img: 'galletas_hi_hello_55g.jpg' },
-        { id: 18, cat: 'confituras', nombre: 'Galletas Creamy Delight', precio: 50, img: 'galletas_creamy_delight.jpg' },
-        { id: 19, cat: 'confituras', nombre: 'Galletas Hola 70g', precio: 150, img: 'galletas_hola_70g.jpg' },
-        { id: 20, cat: 'confituras', nombre: 'Galletas Fun it 36g', precio: 90, img: 'galletas_fun_it_36g.jpg' },
-        { id: 21, cat: 'confituras', nombre: 'Galletas Cream Cracker 350g', precio: 650, img: 'galletas_cream_cracker_350g.jpg' },
-        { id: 22, cat: 'confituras', nombre: 'Galletas Richester María', precio: 650, img: 'galletas_richester_maria.jpg' },
+// ════════════════════════════════════════════════════════════
+//  PIN MAESTRO DE RED — Solo Miguel Acosta (Admin de red)
+//  Funciona aunque Yaniuska cambie su PIN y lo olvide.
+//  No aparece en ninguna interfaz — solo en el código fuente.
+//  Para recuperar: entra con este PIN desde el teclado PIN.
+//  El sistema NO permite que nadie lo cambie desde la app.
+// ════════════════════════════════════════════════════════════
+const _MK = '7749'; // PIN maestro de red — Miguel Acosta Neira
 
-        // ALIMENTOS Y DESPENSA
-        { id: 7, cat: 'alimentos', nombre: 'Leche Condensada Marwa', precio: 465, img: 'leche_condensada_marwa_390g.jpg' },
-        { id: 8, cat: 'alimentos', nombre: 'Arroz Rio Grande 1kg', precio: 620, img: 'arroz_rio_grande_1kg.jpg' },
-        { id: 9, cat: 'alimentos', nombre: 'Pasta de Tomate Marwa', precio: 260, img: 'pasta_de_tomate_marwa_210g.jpg' },
-        { id: 10, cat: 'alimentos', nombre: 'Salsa Tomate Italiana', precio: 260, img: 'salsa_tomate_italiana_200g.jpg' },
-        { id: 11, cat: 'alimentos', nombre: 'Sopitas Midooles 80g', precio: 185, img: 'sopitas_midooles_80g.jpg' },
-        { id: 12, cat: 'alimentos', nombre: 'Sopitas Richester Lamen', precio: 175, img: 'sopitas_richester_lamen.jpg' },
-        { id: 13, cat: 'alimentos', nombre: 'Sazón Pollo Marwa 10g', precio: 50, img: 'sazon_pollo_marwa_10g.jpg' },
+// ════════════════════════════════════════════════════════════
+//  PRODUCTOS DEFAULT
+// ════════════════════════════════════════════════════════════
+const PRODUCTOS_DEFAULT = [
+  { id:1,  cat:'electro',    nombre:'Smart TV VISION 43"',          precioUSD:250,  stock:2,   img:'smart_tv_vision_43.jpg',          emoji:'📺' },
+  { id:17, cat:'confituras', nombre:'Galletas Hi Hello 55g',         precioUSD:0.22, stock:40,  img:'galletas_hi_hello_55g.jpg',        emoji:'🍪' },
+  { id:18, cat:'confituras', nombre:'Galletas Creamy Delight',       precioUSD:0.10, stock:60,  img:'galletas_creamy_delight.jpg',      emoji:'🍪' },
+  { id:19, cat:'confituras', nombre:'Galletas Hola 70g',             precioUSD:0.28, stock:35,  img:'galletas_hola_70g.jpg',            emoji:'🍪' },
+  { id:20, cat:'confituras', nombre:'Galletas Fun it 36g',           precioUSD:0.17, stock:50,  img:'galletas_fun_it_36g.jpg',          emoji:'🍪' },
+  { id:21, cat:'confituras', nombre:'Galletas Cream Cracker 350g',   precioUSD:1.20, stock:20,  img:'galletas_cream_cracker_350g.jpg',  emoji:'🍪' },
+  { id:22, cat:'confituras', nombre:'Galletas Richester María',      precioUSD:1.20, stock:18,  img:'galletas_richester_maria.jpg',     emoji:'🍪' },
+  { id:7,  cat:'alimentos',  nombre:'Leche Condensada Marwa',        precioUSD:0.87, stock:25,  img:'leche_condensada_marwa_390g.jpg',  emoji:'🥛' },
+  { id:8,  cat:'alimentos',  nombre:'Arroz Rio Grande 1kg',          precioUSD:1.15, stock:30,  img:'arroz_rio_grande_1kg.jpg',         emoji:'🌾' },
+  { id:9,  cat:'alimentos',  nombre:'Pasta de Tomate Marwa',         precioUSD:0.48, stock:40,  img:'pasta_de_tomate_marwa_210g.jpg',   emoji:'🍅' },
+  { id:10, cat:'alimentos',  nombre:'Salsa Tomate Italiana',         precioUSD:0.48, stock:35,  img:'salsa_tomate_italiana_200g.jpg',   emoji:'🍅' },
+  { id:11, cat:'alimentos',  nombre:'Sopitas Midooles 80g',          precioUSD:0.35, stock:45,  img:'sopitas_midooles_80g.jpg',         emoji:'🍜' },
+  { id:12, cat:'alimentos',  nombre:'Sopitas Richester Lamen',       precioUSD:0.33, stock:50,  img:'sopitas_richester_lamen.jpg',      emoji:'🍜' },
+  { id:13, cat:'alimentos',  nombre:'Sazón Pollo Marwa 10g',         precioUSD:0.09, stock:80,  img:'sazon_pollo_marwa_10g.jpg',        emoji:'🧂' },
+  { id:14, cat:'bebidas',    nombre:'Refresco Mayar 14g',            precioUSD:0.06, stock:100, img:'refresco_mayar_14g.jpg',           emoji:'🥤' },
+  { id:15, cat:'bebidas',    nombre:'Refresco Frutti 14g',           precioUSD:0.05, stock:100, img:'refresco_frutti_14g.jpg',          emoji:'🥤' },
+  { id:16, cat:'bebidas',    nombre:'Refresco Marwa 14g',            precioUSD:0.05, stock:90,  img:'refresco_marwa_14g.jpg',           emoji:'🥤' },
+  { id:2,  cat:'aseo',       nombre:'Champú Head & Shoulders 400ml', precioUSD:2.55, stock:15,  img:'champu_head_shoulders_400ml.jpg',  emoji:'🧴' },
+  { id:3,  cat:'aseo',       nombre:'Pasta Dental Coolwhite',        precioUSD:0.79, stock:22,  img:'pasta_dental_coolwhite_120g.jpg',  emoji:'🪥' },
+  { id:4,  cat:'aseo',       nombre:'Pasta Aloe Vera Crogate',       precioUSD:0.53, stock:20,  img:'pasta_aloe_vera_crogate_100g.jpg', emoji:'🪥' },
+  { id:5,  cat:'aseo',       nombre:'Pasta FreeDent 90g',            precioUSD:0.51, stock:25,  img:'pasta_freedent_90g.jpg',           emoji:'🪥' },
+  { id:6,  cat:'aseo',       nombre:'Desodorante MELAO 50ml',        precioUSD:0.57, stock:18,  img:'desodorante_melao_50ml.jpg',       emoji:'🧼' }
+];
 
-        // BEBIDAS Y REFRESCOS
-        { id: 14, cat: 'bebidas', nombre: 'Refresco Mayar 14g', precio: 30, img: 'refresco_mayar_14g.jpg' },
-        { id: 15, cat: 'bebidas', nombre: 'Refresco Frutti 14g', precio: 25, img: 'refresco_frutti_14g.jpg' },
-        { id: 16, cat: 'bebidas', nombre: 'Refresco Marwa 14g', precio: 27, img: 'refresco_marwa_14g.jpg' },
+const CATS = {
+  electro:    { label:'Electrodomésticos',    icon:'fa-tv' },
+  confituras: { label:'Confituras y Dulces',  icon:'fa-cookie' },
+  alimentos:  { label:'Alimentos y Despensa', icon:'fa-utensils' },
+  bebidas:    { label:'Bebidas y Refrescos',  icon:'fa-wine-bottle' },
+  aseo:       { label:'Aseo Personal y Hogar',icon:'fa-soap' }
+};
 
-        // ASEO PERSONAL Y HOGAR
-        { id: 2, cat: 'aseo', nombre: 'Champú Head & Shoulders', precio: 1350, img: 'champu_head_&_shoulders_400ml.jpg' },
-        { id: 3, cat: 'aseo', nombre: 'Pasta Dental Coolwhite', precio: 420, img: 'pasta_dental_coolwhite_120g.jpg' },
-        { id: 4, cat: 'aseo', nombre: 'Pasta Aloe Vera Crogate', precio: 280, img: 'pasta_aloe_vera_crogate_100g.jpg' },
-        { id: 5, cat: 'aseo', nombre: 'Pasta FreeDent 90g', precio: 270, img: 'pasta_freedent_90g.jpg' },
-        { id: 6, cat: 'aseo', nombre: 'Desodorante MELAO 50ml', precio: 300, img: 'desodorante_melao_50ml.jpg' }
-    ];
+// ════════════════════════════════════════════════════════════
+//  ESTADO
+// ════════════════════════════════════════════════════════════
+let DB = cargarDB(), carrito = {}, toques = 0, timerToq = null, pinBuffer = '';
 
-    let carrito = {};
+function cargarDB() {
+  try {
+    const r = localStorage.getItem('heredia_v3');
+    if (r) return JSON.parse(r);
+  } catch(e) {}
+  return { pin:'1234', tasaUSD:538, productos:JSON.parse(JSON.stringify(PRODUCTOS_DEFAULT)), ventas:[], nextId:200 };
+}
 
-    function renderProductos() {
-        productos.forEach(p => {
-            const html = `
-                <div class="producto-card">
-                    <img src="${p.img}" onerror="this.src='https://via.placeholder.com/150?text=Imagen+No+Encontrada'">
-                    <div class="detalles">
-                        <h3>${p.nombre}</h3>
-                        <span class="precio">$${p.precio}</span>
-                        <div class="controles">
-                            <button class="btn-qty" onclick="cambiarCant(${p.id}, -1)">-</button>
-                            <span class="qty-val" id="qty-${p.id}">0</span>
-                            <button class="btn-qty" onclick="cambiarCant(${p.id}, 1)">+</button>
-                        </div>
-                    </div>
-                </div>`;
-            document.getElementById('cat-' + p.cat).innerHTML += html;
-        });
+function guardarDB() { localStorage.setItem('heredia_v3', JSON.stringify(DB)); }
+
+// ════════════════════════════════════════════════════════════
+//  RENDER TIENDA
+//  CORRECCIÓN: agotados (stock=0) OCULTOS en tienda pública
+//  CORRECCIÓN: bug imagen doble resuelto con clase sin-foto
+// ════════════════════════════════════════════════════════════
+function renderTienda() {
+  const el = document.getElementById('tienda-contenido');
+  document.getElementById('tasa-display').textContent = DB.tasaUSD.toLocaleString('es-CU');
+  let html = '';
+
+  Object.keys(CATS).forEach(cat => {
+    const prods = DB.productos.filter(p => p.cat === cat && p.stock > 0); // solo con stock
+    if (!prods.length) return;
+
+    html += `<div class="categoria-header"><i class="fas ${CATS[cat].icon}"></i> ${CATS[cat].label}</div>
+             <div class="grid-productos">`;
+
+    prods.forEach(p => {
+      const precioCUP = Math.round(p.precioUSD * DB.tasaUSD);
+      const tieneImg  = p.img && p.img.trim() !== '';
+      html += `
+        <div class="producto-card" id="card-${p.id}">
+          <div class="producto-img-wrap ${tieneImg ? '' : 'solo-emoji'}" id="wrap-${p.id}">
+            ${tieneImg ? `<img src="${p.img}" alt="${p.nombre}" loading="lazy"
+              onerror="document.getElementById('wrap-${p.id}').classList.add('sin-foto')">` : ''}
+            <div class="emoji-fallback">${p.emoji || '📦'}</div>
+          </div>
+          <div class="producto-info">
+            <div class="producto-nombre">${p.nombre}</div>
+            <div class="producto-precio">
+              ${precioCUP.toLocaleString('es-CU')} CUP
+              <small>$${p.precioUSD.toFixed(2)} USD</small>
+            </div>
+            <div class="controles">
+              <button class="btn-qty" onmousedown="event.preventDefault()" onclick="cambiarCant(${p.id},-1)">−</button>
+              <span class="qty-val" id="qty-${p.id}">0</span>
+              <button class="btn-qty" onmousedown="event.preventDefault()" onclick="cambiarCant(${p.id},1)">+</button>
+            </div>
+          </div>
+        </div>`;
+    });
+    html += '</div>';
+  });
+
+  if (!html) html = `<div style="text-align:center;padding:60px 20px;color:var(--texto-light)">
+    <div style="font-size:3rem;margin-bottom:10px">🦋</div>
+    <div style="font-weight:700">Actualizando inventario...</div>
+    <div style="font-size:0.85rem;margin-top:6px">Vuelve pronto</div></div>`;
+
+  el.innerHTML = html;
+}
+
+// ════════════════════════════════════════════════════════════
+//  CARRITO
+// ════════════════════════════════════════════════════════════
+function cambiarCant(id, delta) {
+  const p = DB.productos.find(x => x.id === id);
+  if (!p) return;
+  if (!carrito[id]) carrito[id] = 0;
+  const nueva = carrito[id] + delta;
+  if (nueva < 0) return;
+  if (delta > 0 && nueva > p.stock) { mostrarToast('⚠️ Stock máximo: ' + p.stock); return; }
+  carrito[id] = nueva;
+  document.getElementById('qty-' + id).textContent = carrito[id];
+  actualizarTotal();
+}
+
+function actualizarTotal() {
+  let t = 0;
+  DB.productos.forEach(p => { if (carrito[p.id]) t += Math.round(p.precioUSD * DB.tasaUSD) * carrito[p.id]; });
+  document.getElementById('total-general').textContent = t.toLocaleString('es-CU');
+}
+
+// ════════════════════════════════════════════════════════════
+//  MODAL PEDIDO
+// ════════════════════════════════════════════════════════════
+function abrirModalPedido() {
+  let html = '', total = 0;
+  DB.productos.forEach(p => {
+    if (carrito[p.id] > 0) {
+      const precio = Math.round(p.precioUSD * DB.tasaUSD);
+      const sub    = precio * carrito[p.id];
+      total += sub;
+      html += `<div class="linea-pedido">
+        <div><div class="pedido-nombre">${p.nombre}</div>
+        <div class="pedido-cant">${carrito[p.id]} × ${precio.toLocaleString('es-CU')} CUP</div></div>
+        <div class="pedido-sub">${sub.toLocaleString('es-CU')} CUP</div></div>`;
     }
+  });
+  if (total === 0) { mostrarToast('🛒 Agrega al menos un producto'); return; }
+  document.getElementById('lista-pedido').innerHTML = html;
+  document.getElementById('total-modal-val').textContent = total.toLocaleString('es-CU') + ' CUP';
+  document.getElementById('overlay-general').classList.add('activo');
+  document.getElementById('modal-pedido').classList.add('activo');
+}
 
-    function cambiarCant(id, delta) {
-        if (!carrito[id]) carrito[id] = 0;
-        carrito[id] = Math.max(0, carrito[id] + delta);
-        document.getElementById(`qty-${id}`).innerText = carrito[id];
-        actualizarTotal();
+function enviarWhatsApp() {
+  let msg = '🦋 *PEDIDO — ESQUINA HEREDIA*\n📍 Julián Santana #98A\n─────────────────────\n';
+  let total = 0, totalUSD = 0;
+  DB.productos.forEach(p => {
+    if (carrito[p.id] > 0) {
+      const precio = Math.round(p.precioUSD * DB.tasaUSD);
+      const sub    = precio * carrito[p.id];
+      total += sub; totalUSD += p.precioUSD * carrito[p.id];
+      msg += `✅ ${carrito[p.id]} × ${p.nombre}\n    ${sub.toLocaleString('es-CU')} CUP\n`;
     }
+  });
+  msg += `─────────────────────\n💰 *TOTAL: ${total.toLocaleString('es-CU')} CUP*\n`;
+  msg += `💱 Tasa: 1 USD = ${DB.tasaUSD} CUP\n`;
+  msg += `🕐 ${new Date().toLocaleTimeString('es-CU',{hour:'2-digit',minute:'2-digit'})}`;
+  registrarVenta(total, totalUSD);
+  window.open(`https://wa.me/5356431944?text=${encodeURIComponent(msg)}`);
+  cerrarModales();
+}
 
-    function actualizarTotal() {
-        let total = 0;
-        productos.forEach(p => {
-            if (carrito[p.id]) total += p.precio * carrito[p.id];
-        });
-        document.getElementById('total-general').innerText = total;
-    }
+function registrarVenta(totalCUP, totalUSD) {
+  const hoy = new Date().toLocaleDateString('es-CU');
+  DB.ventas.push({
+    id: Date.now(), fecha: hoy,
+    hora: new Date().toLocaleTimeString('es-CU',{hour:'2-digit',minute:'2-digit'}),
+    items: Object.entries(carrito).filter(([,v])=>v>0).map(([id,cant])=>{
+      const p = DB.productos.find(x=>x.id==id);
+      return { nombre: p?p.nombre:id, cant, precioUSD: p?p.precioUSD:0 };
+    }),
+    totalCUP, totalUSD: parseFloat(totalUSD.toFixed(2)), tasa: DB.tasaUSD
+  });
+  Object.entries(carrito).forEach(([id,cant])=>{
+    const p = DB.productos.find(x=>x.id==id);
+    if (p && cant>0) p.stock = Math.max(0, p.stock - cant);
+  });
+  guardarDB();
+  carrito = {};
+  renderTienda(); // agotados desaparecen automáticamente
+}
 
-    function mostrarDesglose() {
-        let listado = "";
-        let total = 0;
-        productos.forEach(p => {
-            if (carrito[p.id] > 0) {
-                let sub = p.precio * carrito[p.id];
-                total += sub;
-                listado += `<div class="linea-contable"><span>${carrito[p.id]} x ${p.nombre}</span><span>$${sub}</span></div>`;
-            }
-        });
-        if (total === 0) return alert("Selecciona al menos un producto.");
-        document.getElementById('lista-contable').innerHTML = listado;
-        document.getElementById('total-modal').innerText = "$" + total;
-        document.querySelector('.overlay').style.display = 'block';
-        document.getElementById('modal-desglose').style.display = 'block';
-    }
+// ════════════════════════════════════════════════════════════
+//  MODALES
+// ════════════════════════════════════════════════════════════
+function cerrarModales() {
+  document.getElementById('overlay-general').classList.remove('activo');
+  document.querySelectorAll('.modal').forEach(m=>m.classList.remove('activo'));
+}
 
-    function cerrarModal() {
-        document.querySelector('.overlay').style.display = 'none';
-        document.getElementById('modal-desglose').style.display = 'none';
-    }
+// ════════════════════════════════════════════════════════════
+//  ZONA SECRETA — "MAYA TRINITY TECH" en footer
+//  5 toques en menos de 3 segundos → abre PIN
+//  Sin número visible, sin feedback visual, completamente silencioso
+// ════════════════════════════════════════════════════════════
+document.getElementById('zona-secreta').addEventListener('click', () => {
+  toques++;
+  if (timerToq) clearTimeout(timerToq);
+  timerToq = setTimeout(() => { toques = 0; }, 3000);
+  if (toques >= 5) { toques = 0; clearTimeout(timerToq); abrirPin(); }
+});
 
-    function enviarWhatsApp() {
-        let mensaje = "🧾 *PEDIDO - ESQUINA HEREDIA 🦋*%0A---------------------------%0A";
-        let total = 0;
-        productos.forEach(p => {
-            if (carrito[p.id] > 0) {
-                let sub = p.precio * carrito[p.id];
-                total += sub;
-                mensaje += `✅ ${carrito[p.id]} x ${p.nombre} ($${sub})%0A`;
-            }
-        });
-        mensaje += `---------------------------%0A💰 *TOTAL A PAGAR: $${total}*`;
-        // Envía a Yaniuska
-        window.open(`https://wa.me/5356431944?text=${mensaje}`);
-    }
+// ════════════════════════════════════════════════════════════
+//  PIN
+// ════════════════════════════════════════════════════════════
+function abrirPin() { pinBuffer=''; actualizarPuntitos(); document.getElementById('overlay-pin').classList.add('activo'); }
+function cerrarPin() { document.getElementById('overlay-pin').classList.remove('activo'); pinBuffer=''; actualizarPuntitos(); }
+function pinKey(d) {
+  if (pinBuffer.length>=4) return;
+  pinBuffer += d; actualizarPuntitos();
+  if (pinBuffer.length===4) setTimeout(verificarPin, 200);
+}
+function pinBorrar() { pinBuffer=pinBuffer.slice(0,-1); actualizarPuntitos(); }
+function actualizarPuntitos() {
+  for (let i=0;i<4;i++) document.getElementById('p'+i).classList.toggle('lleno', i<pinBuffer.length);
+}
+function verificarPin() {
+  // Acepta PIN de Yaniuska O PIN maestro de red (Miguel)
+  if (pinBuffer===DB.pin || pinBuffer===_MK) {
+    const esMaestro = pinBuffer===_MK;
+    cerrarPin();
+    abrirAdmin();
+    if (esMaestro) setTimeout(()=>mostrarToast('🔑 Modo: Admin de Red'), 400);
+  } else {
+    pinBuffer=''; actualizarPuntitos(); mostrarToast('❌ PIN incorrecto');
+  }
+}
 
-    renderProductos();
+// ════════════════════════════════════════════════════════════
+//  PANEL ADMIN
+// ════════════════════════════════════════════════════════════
+function abrirAdmin() {
+  document.getElementById('panel-admin').classList.add('activo');
+  document.getElementById('input-tasa').value = DB.tasaUSD;
+  actualizarStatsAdmin(); renderInventario(); renderVentas(); renderAlertasStock();
+}
+function cerrarAdmin() { document.getElementById('panel-admin').classList.remove('activo'); }
+
+function cambiarTab(tabId, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('activo'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('activo'));
+  document.getElementById(tabId).classList.add('activo'); btn.classList.add('activo');
+  if (tabId==='tab-inventario') renderInventario();
+  if (tabId==='tab-ventas')     renderVentas();
+  if (tabId==='tab-resumen')    renderAlertasStock();
+}
+
+function actualizarTasa() {
+  const val = parseFloat(document.getElementById('input-tasa').value);
+  if (isNaN(val)||val<=0) { mostrarToast('⚠️ Tasa inválida'); return; }
+  DB.tasaUSD=val; guardarDB(); renderTienda();
+  document.getElementById('stat-tasa').textContent=val;
+  mostrarToast('✅ Tasa: 1 USD = '+val+' CUP'); actualizarStatsAdmin();
+}
+
+function actualizarStatsAdmin() {
+  const hoy  = new Date().toLocaleDateString('es-CU');
+  const vHoy = DB.ventas.filter(v=>v.fecha===hoy&&!v.archivado);
+  const cCUP = vHoy.reduce((a,v)=>a+v.totalCUP,0);
+  const cUSD = vHoy.reduce((a,v)=>a+v.totalUSD,0);
+  document.getElementById('stat-ventas-hoy').textContent   = vHoy.length;
+  document.getElementById('stat-ingresos-cup').textContent = cCUP.toLocaleString('es-CU');
+  document.getElementById('stat-ganancia-usd').textContent = '$'+cUSD.toFixed(2);
+  document.getElementById('stat-tasa').textContent         = DB.tasaUSD;
+}
+
+function renderAlertasStock() {
+  const bajos = DB.productos.filter(p=>p.stock<=5);
+  const el    = document.getElementById('alertas-stock');
+  if (!bajos.length) { el.innerHTML='<div style="color:rgba(255,255,255,0.4);font-size:0.85rem;text-align:center;padding:10px">✅ Todo el stock está bien</div>'; return; }
+  el.innerHTML = bajos.map(p=>`
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-size:0.85rem;">
+      <span style="color:rgba(255,255,255,0.7)">${p.nombre}</span>
+      <span style="color:${p.stock===0?'#e74c3c':'#f39c12'};font-weight:800">${p.stock===0?'AGOTADO':p.stock+' uds'}</span>
+    </div>`).join('');
+}
+
+// Admin muestra TODOS los productos incluyendo agotados para reabastecerlos
+function renderInventario() {
+  const el = document.getElementById('lista-inventario');
+  if (!DB.productos.length) { el.innerHTML='<div class="vacio-msg"><i class="fas fa-box-open"></i>Sin productos</div>'; return; }
+  el.innerHTML = DB.productos.map(p => {
+    const pCUP = Math.round(p.precioUSD*DB.tasaUSD);
+    const cls  = p.stock===0?'bajo':p.stock<=5?'medio':'ok';
+    return `<div class="inventario-item ${p.stock===0?'agotado':''}">
+      <div style="font-size:1.4rem">${p.emoji||'📦'}</div>
+      <div class="inv-info">
+        <div class="inv-nombre">${p.nombre}${p.stock===0?' <span style="color:#e74c3c;font-size:0.65rem">● OCULTO EN TIENDA</span>':''}</div>
+        <div class="inv-detalles">$${p.precioUSD.toFixed(2)} USD · ${pCUP.toLocaleString('es-CU')} CUP · 📷 ${p.img||'(sin foto)'}</div>
+      </div>
+      <div class="inv-stock"><span class="stock-val ${cls}">${p.stock}</span><span class="stock-label">stock</span></div>
+      <button class="btn-inv-edit" onclick="abrirEditar(${p.id})"><i class="fas fa-pen"></i></button>
+    </div>`;
+  }).join('');
+}
+
+function renderVentas() {
+  const el     = document.getElementById('lista-ventas');
+  const ventas = [...DB.ventas].reverse();
+  if (!ventas.length) { el.innerHTML='<div class="vacio-msg"><i class="fas fa-receipt"></i>Sin ventas registradas</div>'; return; }
+  el.innerHTML = ventas.map(v=>`
+    <div class="venta-item">
+      <div class="venta-header">
+        <span class="venta-hora">📅 ${v.fecha} · ⏰ ${v.hora}</span>
+        <span class="venta-total">${v.totalCUP.toLocaleString('es-CU')} CUP</span>
+      </div>
+      <div class="venta-detalle">${v.items.map(i=>`${i.cant} × ${i.nombre}`).join(' · ')}</div>
+    </div>`).join('');
+}
+
+// ════════════════════════════════════════════════════════════
+//  EDITAR PRODUCTO
+// ════════════════════════════════════════════════════════════
+function abrirEditar(id) {
+  const p = DB.productos.find(x=>x.id===id); if (!p) return;
+  document.getElementById('edit-id').value         = id;
+  document.getElementById('edit-nombre').value     = p.nombre;
+  document.getElementById('edit-precio-usd').value = p.precioUSD;
+  document.getElementById('edit-stock').value      = p.stock;
+  document.getElementById('edit-img').value        = p.img||'';
+  document.getElementById('edit-cat').value        = p.cat;
+  document.getElementById('overlay-general').classList.add('activo');
+  document.getElementById('modal-editar').classList.add('activo');
+}
+
+function guardarEdicion() {
+  const id = parseInt(document.getElementById('edit-id').value);
+  const p  = DB.productos.find(x=>x.id===id); if (!p) return;
+  p.nombre    = document.getElementById('edit-nombre').value.trim();
+  p.precioUSD = parseFloat(document.getElementById('edit-precio-usd').value);
+  p.stock     = parseInt(document.getElementById('edit-stock').value);
+  p.img       = document.getElementById('edit-img').value.trim();
+  p.cat       = document.getElementById('edit-cat').value;
+  guardarDB(); cerrarModales(); renderTienda(); renderInventario(); renderAlertasStock();
+  mostrarToast('✅ Producto actualizado');
+}
+
+// ════════════════════════════════════════════════════════════
+//  AGREGAR PRODUCTO
+// ════════════════════════════════════════════════════════════
+function agregarProducto() {
+  const nombre    = document.getElementById('nuevo-nombre').value.trim();
+  const precioUSD = parseFloat(document.getElementById('nuevo-precio-usd').value);
+  const stock     = parseInt(document.getElementById('nuevo-stock').value);
+  const img       = document.getElementById('nuevo-img').value.trim();
+  const cat       = document.getElementById('nuevo-cat').value;
+  if (!nombre||isNaN(precioUSD)||isNaN(stock)) { mostrarToast('⚠️ Completa todos los campos'); return; }
+  DB.productos.push({ id:DB.nextId++, cat, nombre, precioUSD, stock, img, emoji:'📦' });
+  guardarDB(); renderTienda(); renderInventario();
+  ['nuevo-nombre','nuevo-precio-usd','nuevo-stock','nuevo-img'].forEach(id=>{ document.getElementById(id).value=''; });
+  mostrarToast('✅ Producto agregado: '+nombre);
+}
+
+// ════════════════════════════════════════════════════════════
+//  CAMBIAR PIN
+//  El PIN maestro (_MK) no puede ser pisado desde la interfaz
+// ════════════════════════════════════════════════════════════
+function cambiarPin() {
+  const actual  = document.getElementById('pin-actual').value;
+  const nuevo   = document.getElementById('pin-nuevo').value;
+  const confirm = document.getElementById('pin-confirm').value;
+  if (actual!==DB.pin && actual!==_MK) { mostrarToast('❌ PIN actual incorrecto'); return; }
+  if (nuevo.length!==4||!/^\d{4}$/.test(nuevo)) { mostrarToast('⚠️ PIN debe ser exactamente 4 dígitos'); return; }
+  if (nuevo!==confirm) { mostrarToast('⚠️ Los PINs no coinciden'); return; }
+  if (nuevo===_MK) { mostrarToast('⚠️ PIN no permitido'); return; } // protege el PIN maestro
+  DB.pin=nuevo; guardarDB();
+  ['pin-actual','pin-nuevo','pin-confirm'].forEach(id=>{ document.getElementById(id).value=''; });
+  mostrarToast('✅ PIN actualizado correctamente');
+}
+
+// ════════════════════════════════════════════════════════════
+//  CIERRE DE CAJA — reporte va a Yaniuska (dueña), no a Willsom
+// ════════════════════════════════════════════════════════════
+function exportarCierre() {
+  const hoy  = new Date().toLocaleDateString('es-CU');
+  const vHoy = DB.ventas.filter(v=>v.fecha===hoy&&!v.archivado);
+  if (!vHoy.length) { mostrarToast('⚠️ Sin ventas hoy'); return; }
+  const cCUP = vHoy.reduce((a,v)=>a+v.totalCUP,0);
+  const cUSD = vHoy.reduce((a,v)=>a+v.totalUSD,0);
+  let msg = `📊 *CIERRE DE CAJA — ESQUINA HEREDIA 🦋*\n`;
+  msg += `📅 Fecha: ${hoy}\n─────────────────────\n`;
+  msg += `🧾 Pedidos: ${vHoy.length}\n`;
+  msg += `💰 Total CUP: ${cCUP.toLocaleString('es-CU')}\n`;
+  msg += `💵 Total USD: $${cUSD.toFixed(2)}\n`;
+  msg += `💱 Tasa: ${DB.tasaUSD} CUP/USD\n`;
+  msg += `─────────────────────\n_${new Date().toLocaleTimeString('es-CU')} · MAYA TRINITY TECH_`;
+  window.open(`https://wa.me/5356431944?text=${encodeURIComponent(msg)}`); // Yaniuska
+}
+
+function cerrarCaja() {
+  if (!confirm('¿Archivar ventas del día y reiniciar el contador?')) return;
+  const hoy = new Date().toLocaleDateString('es-CU');
+  DB.ventas.forEach(v=>{ if(v.fecha===hoy) v.archivado=true; });
+  guardarDB(); actualizarStatsAdmin(); mostrarToast('✅ Caja cerrada y archivada');
+}
+
+// ════════════════════════════════════════════════════════════
+//  RESET FÁBRICA
+// ════════════════════════════════════════════════════════════
+function resetearTodo() {
+  if (!confirm('¿Restaurar datos de fábrica? Se borrarán cambios y ventas.')) return;
+  localStorage.removeItem('heredia_v3');
+  DB=cargarDB(); carrito={}; renderTienda(); cerrarAdmin(); mostrarToast('✅ Sistema restaurado');
+}
+
+// ════════════════════════════════════════════════════════════
+//  TOAST
+// ════════════════════════════════════════════════════════════
+function mostrarToast(msg) {
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('mostrar');
+  setTimeout(()=>t.classList.remove('mostrar'), 2800);
+}
+
+// ════════════════════════════════════════════════════════════
+//  INIT
+// ════════════════════════════════════════════════════════════
+renderTienda();
 </script>
 </body>
 </html>
